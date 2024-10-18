@@ -1,0 +1,46 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2ngemxqjxwjl"]
+
+[ext_resource type="Script" path="res://UI/Scripts/PauseMenu.cs" id="1_d26dm"]
+[ext_resource type="Texture2D" uid="uid://yb12uwhv3hyp" path="res://UI/Textures/InputIndicators/InputCross.png" id="1_ngqm1"]
+[ext_resource type="Texture2D" uid="uid://bws0miyl2rh2p" path="res://UI/Textures/InputIndicators/InputCircle.png" id="2_o6qo4"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_d26dm")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 217.0
+offset_top = 102.0
+offset_right = 483.0
+offset_bottom = 247.0
+color = Color(0.130772, 0.130772, 0.130772, 1)
+
+[node name="LblResume" type="Label" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 124.0
+offset_right = 351.0
+offset_bottom = 166.0
+theme_override_font_sizes/font_size = 30
+text = "Resume"
+
+[node name="InputCross" type="Sprite2D" parent="LblResume"]
+position = Vector2(155, 20)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_ngqm1")
+
+[node name="LblQuit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 181.0
+offset_right = 352.0
+offset_bottom = 223.0
+theme_override_font_sizes/font_size = 30
+text = "Quit"
+
+[node name="InputCircle" type="Sprite2D" parent="LblQuit"]
+position = Vector2(105, 31)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_o6qo4")

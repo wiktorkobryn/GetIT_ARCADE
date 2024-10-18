@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxi56q30hndrv"]
+
+[ext_resource type="Script" path="res://UI/Scripts/Menu.cs" id="1_1ufyk"]
+[ext_resource type="Texture2D" uid="uid://cxwk8tisw5leg" path="res://UI/Textures/MenuGameButtons/GameButtonMiddle.png" id="2_2gfaq"]
+[ext_resource type="Texture2D" uid="uid://b3of3missirod" path="res://UI/Textures/MenuGameButtons/GameButtonSide.png" id="3_k0d57"]
+[ext_resource type="Texture2D" uid="uid://cw23ndxigfwxo" path="res://UI/Textures/MenuGameButtons/GameButtonPlay.png" id="4_achsu"]
+[ext_resource type="Texture2D" uid="uid://bsnetnaqwwoq0" path="res://UI/Textures/InputIndicators/InputTriangle.png" id="5_8dkpw"]
+
+[node name="Menu" type="Node2D" node_paths=PackedStringArray("panelGameSelected", "panelGameLeft", "panelGameRight", "SelectedGameDescriptionLbl")]
+script = ExtResource("1_1ufyk")
+panelGameSelected = NodePath("SprBtnMiddle")
+panelGameLeft = NodePath("SprBtnLeft")
+panelGameRight = NodePath("SprBtnRight")
+SelectedGameDescriptionLbl = NodePath("LblGameDescritpion")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1600.0
+offset_bottom = 900.0
+color = Color(0.329412, 0.34902, 0.396078, 1)
+
+[node name="SprBtnMiddle" type="Sprite2D" parent="."]
+position = Vector2(819, 369)
+scale = Vector2(0.773333, 0.773333)
+texture = ExtResource("2_2gfaq")
+
+[node name="SprBtnLeft" type="Sprite2D" parent="."]
+position = Vector2(409, 398)
+scale = Vector2(0.736667, 0.736667)
+texture = ExtResource("3_k0d57")
+
+[node name="SprBtnRight" type="Sprite2D" parent="."]
+position = Vector2(1230, 398)
+scale = Vector2(0.736667, 0.736667)
+texture = ExtResource("3_k0d57")
+
+[node name="SprButtonPlay" type="Sprite2D" parent="."]
+position = Vector2(810, 813)
+scale = Vector2(0.286667, 0.286667)
+texture = ExtResource("4_achsu")
+
+[node name="InputTriangle" type="Sprite2D" parent="SprButtonPlay"]
+position = Vector2(-286.046, 125.581)
+scale = Vector2(1.04651, 1.04651)
+texture = ExtResource("5_8dkpw")
+
+[node name="LblGameDescritpion" type="Label" parent="."]
+offset_left = 1248.0
+offset_top = 712.0
+offset_right = 1559.0
+offset_bottom = 874.0
+theme_override_font_sizes/font_size = 20
+text = "description"
