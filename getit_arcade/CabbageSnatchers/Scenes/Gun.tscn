@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2613e5aq1i5"]
+
+[ext_resource type="Texture2D" uid="uid://kjrshso7ctx6" path="res://CabbageSnatchers/Textures/PlayerCalien/Arm/CalienGunLoaded.png" id="1_mm0tp"]
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Gun.cs" id="2_84pg0"]
+
+[node name="Gun" type="Sprite2D"]
+texture = ExtResource("1_mm0tp")
+script = ExtResource("2_84pg0")
+
+[node name="BulletSpawnPoint" type="Marker2D" parent="."]
+position = Vector2(94, -9)

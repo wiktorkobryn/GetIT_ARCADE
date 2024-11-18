@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbsyraox4ed2v"]
+
+[ext_resource type="Texture2D" uid="uid://c8k7ilqs5tu13" path="res://CabbageSnatchers/Textures/PlayerCalien/Arm/CalienGunBullet.png" id="1_3xuvf"]
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Bullet.cs" id="2_2buru"]
+[ext_resource type="PackedScene" uid="uid://whk4dn7mxfxp" path="res://CabbageSnatchers/Scenes/Hitbox.tscn" id="2_47lxo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pi3y5"]
+
+[node name="Bullet" type="Sprite2D"]
+position = Vector2(-7.62939e-06, 9.53674e-07)
+texture = ExtResource("1_3xuvf")
+script = ExtResource("2_2buru")
+
+[node name="Hitbox" parent="." instance=ExtResource("2_47lxo")]
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(49, 0)
+shape = SubResource("CircleShape2D_pi3y5")
+
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="area_entered" from="Hitbox" to="." method="OnHitboxAreaEntered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="OnDestroyTimerTimeout"]
+
+[editable path="Hitbox"]

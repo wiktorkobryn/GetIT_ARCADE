@@ -1,0 +1,110 @@
+[gd_scene load_steps=20 format=3 uid="uid://44wb0bpdbd8t"]
+
+[ext_resource type="Texture2D" uid="uid://c483f0q6wyb32" path="res://CabbageSnatchers/Textures/PlayerCalien/Damage/CalienDamage.001.png" id="1_gbca3"]
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Player.cs" id="1_iajqp"]
+[ext_resource type="Texture2D" uid="uid://vj5ctqtlfuom" path="res://CabbageSnatchers/Textures/PlayerCalien/Damage/CalienDamage.002.png" id="2_ydm3u"]
+[ext_resource type="Texture2D" uid="uid://c2rbrd7h0mdli" path="res://CabbageSnatchers/Textures/PlayerCalien/Death/CalienDeath.001.png" id="3_43n6h"]
+[ext_resource type="Texture2D" uid="uid://5lxreqasxpo6" path="res://CabbageSnatchers/Textures/PlayerCalien/Death/CalienDeath.002.png" id="4_iepuw"]
+[ext_resource type="Texture2D" uid="uid://cf8o25nq76ccj" path="res://CabbageSnatchers/Textures/PlayerCalien/Idle/CalienIdle.001.png" id="5_cyudk"]
+[ext_resource type="Texture2D" uid="uid://b3us276ctbmwi" path="res://CabbageSnatchers/Textures/PlayerCalien/Idle/CalienIdle.002.png" id="6_gxp6x"]
+[ext_resource type="Texture2D" uid="uid://cfas6u0amgc4" path="res://CabbageSnatchers/Textures/PlayerCalien/Idle/CalienIdle.003.png" id="7_doeug"]
+[ext_resource type="Texture2D" uid="uid://bxn15ylif5lq8" path="res://CabbageSnatchers/Textures/PlayerCalien/Idle/CalienIdle.004.png" id="8_33ygr"]
+[ext_resource type="Texture2D" uid="uid://c0d34ick63v14" path="res://CabbageSnatchers/Textures/PlayerCalien/Run/CalienRun.001.png" id="9_cvd5f"]
+[ext_resource type="Texture2D" uid="uid://cbygyua8hcd22" path="res://CabbageSnatchers/Textures/PlayerCalien/Run/CalienRun.002.png" id="10_a5bmx"]
+[ext_resource type="Texture2D" uid="uid://cbncn1imtvpr8" path="res://CabbageSnatchers/Textures/PlayerCalien/Run/CalienRun.003.png" id="11_wv5os"]
+[ext_resource type="Texture2D" uid="uid://b1r17x0urj5f1" path="res://CabbageSnatchers/Textures/PlayerCalien/Run/CalienRun.004.png" id="12_gpobv"]
+[ext_resource type="Texture2D" uid="uid://bf06jq30ou3n7" path="res://CabbageSnatchers/Textures/PlayerCalien/Run/CalienRun.005.png" id="13_g8s7r"]
+[ext_resource type="Texture2D" uid="uid://cc1bpctsmvli2" path="res://CabbageSnatchers/Textures/PlayerCalien/Arm/CalienArm.png" id="15_8pabq"]
+[ext_resource type="PackedScene" uid="uid://d2613e5aq1i5" path="res://CabbageSnatchers/Scenes/Gun.tscn" id="16_11iwk"]
+[ext_resource type="PackedScene" uid="uid://cbsyraox4ed2v" path="res://CabbageSnatchers/Scenes/Bullet.tscn" id="17_72igv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j7cgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_gbca3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_ydm3u")
+}],
+"loop": true,
+"name": &"Damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_43n6h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_iepuw")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cyudk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gxp6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_doeug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_33ygr")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_cvd5f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_a5bmx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_wv5os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_gpobv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_g8s7r")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a211n"]
+radius = 56.0803
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_iajqp")
+shot_delay = 0.43
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-23, -209)
+sprite_frames = SubResource("SpriteFrames_j7cgy")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, -57)
+shape = SubResource("CircleShape2D_a211n")
+
+[node name="Arm" type="Sprite2D" parent="."]
+position = Vector2(53, -174)
+texture = ExtResource("15_8pabq")
+centered = false
+offset = Vector2(-34.85, -50)
+
+[node name="Gun" parent="Arm" instance=ExtResource("16_11iwk")]
+position = Vector2(246, -30)
+bullet_scene = ExtResource("17_72igv")
+
+[connection signal="Shoot" from="." to="Arm/Gun" method="OnPlayerShoot"]

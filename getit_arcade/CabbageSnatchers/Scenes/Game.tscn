@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddh0glkd1reiu"]
+
+[ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="1_cs5qy"]
+[ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="2_j3q4j"]
+
+[node name="Game" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_cs5qy")]
+position = Vector2(-1, -2)
+shot_delay = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, -4)
+zoom = Vector2(0.2, 0.2)
+
+[node name="EnemySpawner" parent="." instance=ExtResource("2_j3q4j")]
