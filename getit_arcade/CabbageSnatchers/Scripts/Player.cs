@@ -4,26 +4,31 @@ using System;
 public partial class Player : CharacterBody2D
 {
 	[Export]
-	public float shot_delay = 0.5f;
-	public const float MAX_SPEED = 1000.0f;
-	public const float ACCELERATION = 1500.0f;
-	public const float FRITION = 2000.0f;
+	public float shot_delay = 0.3f;
+	[Export]
+	public int HP = 7;
+
+	public const float MAX_SPEED = 200.0f;
+	public const float ACCELERATION = 700.0f;
+	public const float FRITION = 700.0f;
 
 	private AnimatedSprite2D animatedSprite;
 	private Sprite2D arm;
 	private Sprite2D gun;
 	private Timer shotTimer;
 	private bool canShoot = true;
+	private bool isAlive = true;
 
 	[Signal]
 	public delegate void ShootEventHandler();
+	[Signal]
+	public delegate void UpdateHealthBarHudEventHandler(int value);
 
 	public override void _Ready()
 	{
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		arm = GetNode<Sprite2D>("Arm");
 		gun = GetNode<Sprite2D>("Arm/Gun");
-		// shotTimer = GetNode<Timer>("ShotTimer");
 		shotTimer = new Timer();
 		shotTimer.WaitTime = shot_delay;
 		shotTimer.Timeout += OnShotTimerTimeout;
@@ -32,9 +37,12 @@ public partial class Player : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (!isAlive) return;
+		if (animatedSprite.Animation == "Damage" && animatedSprite.IsPlaying()) return;
+
 		Vector2 velocity = Velocity;
 
-		if (Input.IsMouseButtonPressed(MouseButton.Left) && canShoot)
+		if (Input.IsActionPressed("shoot") && canShoot)
 		{
 			EmitSignal(SignalName.Shoot);
 			canShoot = false;
@@ -68,5 +76,18 @@ public partial class Player : CharacterBody2D
 	private void OnShotTimerTimeout()
 	{
 		canShoot = true;
+	}
+
+	private void OnHurtboxAreaEntered(Area2D area)
+	{
+		HP -= 1;
+		EmitSignal(SignalName.UpdateHealthBarHud, HP);
+		animatedSprite.Play("Damage");
+
+		if (HP == 0)
+		{
+			isAlive = false;
+			animatedSprite.Play("Death");
+		}
 	}
 }

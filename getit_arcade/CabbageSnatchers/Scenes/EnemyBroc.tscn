@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dmhbj5uxof2x8"]
+[gd_scene load_steps=17 format=3 uid="uid://dd4xsjxdaurws"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_b8kub"]
 [ext_resource type="Texture2D" uid="uid://bh5sctirojp7k" path="res://CabbageSnatchers/Textures/EnemyBroc/Damage/BrocDamage.001.png" id="1_ifp1l"]
@@ -71,30 +71,31 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vt5t3"]
-radius = 52.7731
+radius = 15.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_717xd"]
-radius = 49.0
-height = 388.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3e8g"]
+radius = 51.0098
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_b8kub")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, -216)
+position = Vector2(5, -54)
+scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_i4pif")
 animation = &"Idle"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -54)
+position = Vector2(5, -15)
 shape = SubResource("CircleShape2D_vt5t3")
 
 [node name="Hurtbox" parent="." instance=ExtResource("13_xcu1x")]
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(5, -199)
-shape = SubResource("CapsuleShape2D_717xd")
+position = Vector2(6, -52)
+shape = SubResource("CircleShape2D_s3e8g")
+debug_color = Color(0.96034, 0.0435504, 0.491865, 0.42)
 
 [node name="CorpseTimer" type="Timer" parent="."]
 

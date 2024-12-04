@@ -23,16 +23,15 @@ public partial class Enemy : CharacterBody2D
 
 	public override void _PhysicsProcess(double delta)
 	{
-		if (isAlive)
-		{
-			if (animatedSprite.Animation == "Damage" && animatedSprite.IsPlaying()) return;
+		if (!isAlive) return;
 
-			var direction = (player.Position - Position).Normalized();
-			Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
-			animatedSprite.Play("Run");
+		if (animatedSprite.Animation == "Damage" && animatedSprite.IsPlaying()) return;
 
-			MoveAndSlide();
-		}
+		var direction = (player.Position - Position).Normalized();
+		Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
+		animatedSprite.Play("Run");
+
+		MoveAndSlide();
 	}
 
 	private void OnHurtboxAreaEntered(Area2D area)

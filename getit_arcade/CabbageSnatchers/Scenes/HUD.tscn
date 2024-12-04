@@ -1,0 +1,96 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkurytjbyi2xu"]
+
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Hud.cs" id="1_grx6d"]
+[ext_resource type="Texture2D" uid="uid://bdgl7831hpq5r" path="res://CabbageSnatchers/Textures/UI/Panels/IngameHealth.png" id="1_wbdfh"]
+[ext_resource type="Texture2D" uid="uid://ch3gahvmv2sqd" path="res://CabbageSnatchers/Textures/UI/Panels/IngameHeathPoint.png" id="2_uiob4"]
+[ext_resource type="Texture2D" uid="uid://bblkc0annqqxq" path="res://CabbageSnatchers/Textures/UI/Panels/IngameWeapon1.png" id="4_p1u0y"]
+[ext_resource type="Texture2D" uid="uid://mfgjnvacpj78" path="res://CabbageSnatchers/Textures/UI/Panels/IngameWeapon2.png" id="5_4uojs"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_grx6d")
+
+[node name="HealthBarBg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 487.0
+offset_bottom = 130.0
+texture = ExtResource("1_wbdfh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HealthBar" type="HBoxContainer" parent="HealthBarBg"]
+custom_minimum_size = Vector2(30.15, 42.66)
+layout_mode = 1
+offset_left = 129.0
+offset_top = 21.0
+offset_right = 483.0
+offset_bottom = 103.0
+theme_override_constants/separation = -28
+
+[node name="HealthPoint" type="TextureRect" parent="HealthBarBg/HealthBar"]
+layout_mode = 2
+texture = ExtResource("2_uiob4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthPoint2" type="TextureRect" parent="HealthBarBg/HealthBar"]
+layout_mode = 2
+texture = ExtResource("2_uiob4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthPoint3" type="TextureRect" parent="HealthBarBg/HealthBar"]
+layout_mode = 2
+texture = ExtResource("2_uiob4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthPoint4" type="TextureRect" parent="HealthBarBg/HealthBar"]
+layout_mode = 2
+texture = ExtResource("2_uiob4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthPoint5" type="TextureRect" parent="HealthBarBg/HealthBar"]
+layout_mode = 2
+texture = ExtResource("2_uiob4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthPoint6" type="TextureRect" parent="HealthBarBg/HealthBar"]
+layout_mode = 2
+texture = ExtResource("2_uiob4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="HealthPoint7" type="TextureRect" parent="HealthBarBg/HealthBar"]
+layout_mode = 2
+texture = ExtResource("2_uiob4")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Gun" type="TextureRect" parent="."]
+layout_mode = 1
+offset_left = 11.0
+offset_top = 119.0
+offset_right = 201.0
+offset_bottom = 213.0
+texture = ExtResource("4_p1u0y")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Sword" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 11.0
+offset_top = 119.0
+offset_right = 201.0
+offset_bottom = 213.0
+texture = ExtResource("5_4uojs")
+expand_mode = 1
+stretch_mode = 4

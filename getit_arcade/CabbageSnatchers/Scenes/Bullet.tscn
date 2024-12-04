@@ -8,6 +8,7 @@
 
 [node name="Bullet" type="Sprite2D"]
 position = Vector2(-7.62939e-06, 9.53674e-07)
+scale = Vector2(0.35, 0.35)
 texture = ExtResource("1_3xuvf")
 script = ExtResource("2_2buru")
 

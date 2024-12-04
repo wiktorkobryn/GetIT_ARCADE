@@ -1,16 +1,38 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddh0glkd1reiu"]
+[gd_scene load_steps=4 format=3 uid="uid://ddh0glkd1reiu"]
 
 [ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="1_cs5qy"]
+[ext_resource type="PackedScene" uid="uid://bkurytjbyi2xu" path="res://CabbageSnatchers/Scenes/HUD.tscn" id="2_4q8on"]
 [ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="2_j3q4j"]
 
 [node name="Game" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_cs5qy")]
-position = Vector2(-1, -2)
-shot_delay = 0.5
+[node name="HUD" parent="." instance=ExtResource("2_4q8on")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 2.0
+offset_bottom = -4.0
+grow_horizontal = 1
+grow_vertical = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(2, -4)
-zoom = Vector2(0.2, 0.2)
+[node name="Player" parent="." instance=ExtResource("1_cs5qy")]
+position = Vector2(922, 540)
+shot_delay = 0.3
 
 [node name="EnemySpawner" parent="." instance=ExtResource("2_j3q4j")]
+
+[node name="Marker2D" parent="EnemySpawner/SpawnPoints" index="0"]
+position = Vector2(1844, 188)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="1"]
+position = Vector2(108, 839)
+
+[node name="Marker2D3" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="2"]
+position = Vector2(1755, 919)
+
+[connection signal="UpdateHealthBarHud" from="Player" to="HUD" method="OnPlayerUpdateHealthBarHud"]
+
+[editable path="EnemySpawner"]
