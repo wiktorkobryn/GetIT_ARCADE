@@ -80,6 +80,8 @@ public partial class Player : CharacterBody2D
 
 	private void OnHurtboxAreaEntered(Area2D area)
 	{
+		if (!isAlive) return;
+
 		HP -= 1;
 		EmitSignal(SignalName.UpdateHealthBarHud, HP);
 		animatedSprite.Play("Damage");

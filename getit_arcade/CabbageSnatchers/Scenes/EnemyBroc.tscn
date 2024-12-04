@@ -77,6 +77,8 @@ radius = 15.0
 radius = 51.0098
 
 [node name="Enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 7
 script = ExtResource("1_b8kub")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -91,6 +93,8 @@ position = Vector2(5, -15)
 shape = SubResource("CircleShape2D_vt5t3")
 
 [node name="Hurtbox" parent="." instance=ExtResource("13_xcu1x")]
+collision_layer = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(6, -52)

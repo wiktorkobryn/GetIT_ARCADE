@@ -22,6 +22,7 @@ public partial class EnemySpawner : Node2D
     var position = spawnPoints.GetChild<Marker2D>(r.Next(0, numOfSpawnPoints)).GlobalPosition;
     // var position = new Vector2((int)(screen.X / 0.3), r.Next(-(int)(screen.Y / 0.3), (int)(screen.Y / 0.3)));
     enemy.GlobalPosition = position;
+    enemy.AddToGroup("enemies");
     AddChild(enemy);
   }
 }

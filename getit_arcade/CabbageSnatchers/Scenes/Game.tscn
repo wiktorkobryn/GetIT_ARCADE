@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddh0glkd1reiu"]
+[gd_scene load_steps=5 format=3 uid="uid://ddh0glkd1reiu"]
 
 [ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="1_cs5qy"]
 [ext_resource type="PackedScene" uid="uid://bkurytjbyi2xu" path="res://CabbageSnatchers/Scenes/HUD.tscn" id="2_4q8on"]
 [ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="2_j3q4j"]
+[ext_resource type="Texture2D" uid="uid://drijat3lm46fe" path="res://CabbageSnatchers/Textures/Scene/Floor/FlooringAdjustments/FloorBcg.png" id="2_sx77o"]
 
 [node name="Game" type="Node2D"]
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="FloorBcg" type="Sprite2D" parent="World"]
+position = Vector2(955.5, 551.5)
+scale = Vector2(0.826786, 0.786111)
+texture = ExtResource("2_sx77o")
 
 [node name="HUD" parent="." instance=ExtResource("2_4q8on")]
 anchors_preset = 0

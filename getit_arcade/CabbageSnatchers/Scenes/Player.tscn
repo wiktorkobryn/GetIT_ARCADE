@@ -89,6 +89,8 @@ radius = 17.0
 height = 76.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 23
 script = ExtResource("1_iajqp")
 shot_delay = 0.43
 
@@ -104,6 +106,8 @@ position = Vector2(0, -12)
 shape = SubResource("CircleShape2D_70wkr")
 
 [node name="Hurtbox" parent="." instance=ExtResource("15_hmy17")]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(1, -43)
