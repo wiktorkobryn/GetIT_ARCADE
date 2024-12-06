@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://1b83o5rx0cd2"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/EnemySpawner.cs" id="1_xv4ea"]
-[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/EnemyBroc.tscn" id="2_autya"]
+[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/Enemies/EnemyBroc.tscn" id="2_autya"]
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_xv4ea")

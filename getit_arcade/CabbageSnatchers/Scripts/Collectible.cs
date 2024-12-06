@@ -8,36 +8,36 @@ public partial class Collectible : Area2D
   public CollectibleType collectibleType = CollectibleType.HEALTH;
   private readonly Dictionary<CollectibleType, string> spritePath = new()
   {
-    { CollectibleType.HEALTH, "res://CabbageSnatchers/Textures/UI/Powerups/PowerupHealth.png" },
-    { CollectibleType.INVICIBILITY, "res://CabbageSnatchers/Textures/UI/Powerups/PowerupInvincibility.png" }
+	{ CollectibleType.HEALTH, "res://CabbageSnatchers/Textures/UI/Powerups/PowerupHealth.png" },
+	{ CollectibleType.INVICIBILITY, "res://CabbageSnatchers/Textures/UI/Powerups/PowerupInvincibility.png" }
   };
 
   public override void _Ready()
   {
-    GetNode<Sprite2D>("Sprite2D").Texture = (Texture2D)GD.Load(spritePath[collectibleType]);
+	GetNode<Sprite2D>("Sprite2D").Texture = (Texture2D)GD.Load(spritePath[collectibleType]);
   }
 
   void OnAreaEntered(Area2D area)
   {
-    QueueFree();
+	QueueFree();
   }
 
   void OnBodyEntered(Node2D node)
   {
-    if (node is Player)
-    {
-      var player = (Player)node;
+	if (node is Player)
+	{
+	  var player = (Player)node;
 
-      switch (collectibleType)
-      {
-        case CollectibleType.HEALTH:
-          player.AddHealth(1);
-          break;
-        case CollectibleType.INVICIBILITY:
-          break;
-        default:
-          break;
-      }
-    }
+	  switch (collectibleType)
+	  {
+		case CollectibleType.HEALTH:
+		  player.AddHealth(1);
+		  break;
+		case CollectibleType.INVICIBILITY:
+		  break;
+		default:
+		  break;
+	  }
+	}
   }
 }

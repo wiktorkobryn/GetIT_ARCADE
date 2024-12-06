@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://r30ty0424din"]
 
 [ext_resource type="Texture2D" uid="uid://dwvfjgo6kp74m" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks3.png" id="1_gajrv"]
-[ext_resource type="PackedScene" uid="uid://5hfybomtoved" path="res://CabbageSnatchers/Prefabs/Props/PropFertilizer.tscn" id="3_as4df"]
-[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Prefabs/Props/PropBucket.tscn" id="4_hk85e"]
-[ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Prefabs/Props/PropWateringCan.tscn" id="6_d8ld0"]
-[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Prefabs/Props/PropPlant1.tscn" id="6_g6r8s"]
-[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Prefabs/Props/PropTools.tscn" id="7_eguew"]
-[ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Prefabs/Props/PropPipe.tscn" id="7_t16rt"]
+[ext_resource type="PackedScene" uid="uid://5hfybomtoved" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropFertilizer.tscn" id="3_as4df"]
+[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropBucket.tscn" id="4_hk85e"]
+[ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="6_d8ld0"]
+[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="6_g6r8s"]
+[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropTools.tscn" id="7_eguew"]
+[ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="7_t16rt"]
 
 [node name="Scene1" type="Node2D"]
 y_sort_enabled = true

@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8emyo08g0xko"]
 
 [ext_resource type="Texture2D" uid="uid://da3pt4u55rw02" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks1.png" id="1_gi0vp"]
-[ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Prefabs/Props/PropPipe.tscn" id="2_m3uow"]
-[ext_resource type="PackedScene" uid="uid://dhyixj6u61ngr" path="res://CabbageSnatchers/Prefabs/Props/PropValve.tscn" id="3_071t6"]
-[ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Prefabs/Props/PropWateringCan.tscn" id="4_8piha"]
-[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Prefabs/Props/PropTools.tscn" id="5_bcpb7"]
-[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Prefabs/Props/PropBucket.tscn" id="6_x5omy"]
-[ext_resource type="PackedScene" uid="uid://dwis5vcbjeowo" path="res://CabbageSnatchers/Prefabs/Props/PropPlant2.tscn" id="7_6ooo2"]
-[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Prefabs/Props/PropPlant1.tscn" id="8_lbn7f"]
-[ext_resource type="PackedScene" uid="uid://cq4gcn2unxeir" path="res://CabbageSnatchers/Prefabs/Props/PropPotShattered.tscn" id="9_xqwlx"]
+[ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="2_m3uow"]
+[ext_resource type="PackedScene" uid="uid://dhyixj6u61ngr" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropValve.tscn" id="3_071t6"]
+[ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="4_8piha"]
+[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropTools.tscn" id="5_bcpb7"]
+[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropBucket.tscn" id="6_x5omy"]
+[ext_resource type="PackedScene" uid="uid://dwis5vcbjeowo" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant2.tscn" id="7_6ooo2"]
+[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="8_lbn7f"]
+[ext_resource type="PackedScene" uid="uid://cq4gcn2unxeir" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPotShattered.tscn" id="9_xqwlx"]
 
 [node name="Scene1" type="Node2D"]
 y_sort_enabled = true
