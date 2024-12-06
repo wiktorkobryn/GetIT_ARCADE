@@ -1,16 +1,59 @@
-[gd_scene load_steps=12 format=3 uid="uid://h2t1nfpiry7r"]
+[gd_scene load_steps=19 format=3 uid="uid://h2t1nfpiry7r"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/GameMenu.cs" id="1_4vea2"]
 [ext_resource type="Texture2D" uid="uid://bk8ffo7kjv028" path="res://CabbageSnatchers/Textures/UI/Panels/PopupStartGame.png" id="2_gcunl"]
 [ext_resource type="Texture2D" uid="uid://cj5pvmbtl43i1" path="res://CabbageSnatchers/Textures/UI/Panels/MenuBackground.png" id="2_j4qyl"]
 [ext_resource type="Texture2D" uid="uid://bsnetnaqwwoq0" path="res://UI/Textures/InputIndicators/InputTriangle.png" id="4_0loo7"]
+[ext_resource type="Texture2D" uid="uid://b2322v8eo67ij" path="res://UI/Textures/InputIndicators/InputR1.png" id="5_1e3ba"]
 [ext_resource type="PackedScene" uid="uid://c38n62346hvav" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant3.tscn" id="5_t6280"]
+[ext_resource type="Texture2D" uid="uid://c2mkfp07h5217" path="res://UI/Textures/InputIndicators/InputL.png" id="6_pnhxf"]
 [ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="6_vn1tr"]
+[ext_resource type="Texture2D" uid="uid://cquboa1qbjsio" path="res://UI/Textures/InputIndicators/InputR.png" id="7_0exq1"]
 [ext_resource type="PackedScene" uid="uid://dwis5vcbjeowo" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant2.tscn" id="7_57v32"]
 [ext_resource type="PackedScene" uid="uid://daeckbcp5w85v" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPotBroken.tscn" id="8_ehpof"]
+[ext_resource type="Texture2D" uid="uid://d2i0728m6nbnw" path="res://CabbageSnatchers/Textures/UI/Panels/IngameScoreCounter.png" id="8_y82rp"]
 [ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="9_d00pg"]
 [ext_resource type="PackedScene" uid="uid://dhyixj6u61ngr" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropValve.tscn" id="10_6wvh6"]
 [ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="11_mc4ld"]
+
+[sub_resource type="Animation" id="Animation_6pi0q"]
+resource_name = "idle"
+length = 20.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10, 20),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 9.55499), Vector2(0, -9.685), Vector2(0, 9.55499)]
+}
+
+[sub_resource type="Animation" id="Animation_gi2vr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dljx4"]
+_data = {
+"RESET": SubResource("Animation_gi2vr"),
+"idle": SubResource("Animation_6pi0q")
+}
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -26,8 +69,15 @@ position = Vector2(979, 581)
 scale = Vector2(0.753111, 0.693078)
 texture = ExtResource("2_j4qyl")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("TextureRect")
+libraries = {
+"": SubResource("AnimationLibrary_dljx4")
+}
+autoplay = "idle"
+speed_scale = 3.0
+
+[node name="TextureRect" type="TextureRect" parent="AnimationPlayer"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -44,22 +94,38 @@ texture = ExtResource("2_gcunl")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="InputTriangle" type="TextureRect" parent="TextureRect"]
+[node name="InputTriangle" type="TextureRect" parent="AnimationPlayer/TextureRect"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 51.0
-offset_top = -16.0
-offset_right = 91.0
-offset_bottom = 24.0
+offset_left = 49.7763
+offset_top = -31.0
+offset_right = 89.7764
+offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.59297, 1.59297)
 texture = ExtResource("4_0loo7")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="InputR1" type="Sprite2D" parent="AnimationPlayer/TextureRect"]
+position = Vector2(1174.58, 776)
+scale = Vector2(0.224728, 0.225)
+texture = ExtResource("5_1e3ba")
+
+[node name="InputL" type="Sprite2D" parent="AnimationPlayer/TextureRect"]
+position = Vector2(956.84, 705)
+scale = Vector2(0.299637, 0.3)
+texture = ExtResource("6_pnhxf")
+
+[node name="InputR" type="Sprite2D" parent="AnimationPlayer/TextureRect"]
+position = Vector2(990.799, 848)
+scale = Vector2(0.299637, 0.3)
+texture = ExtResource("7_0exq1")
 
 [node name="Props" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -145,3 +211,24 @@ scale = Vector2(1, 1)
 position = Vector2(172, 1084)
 rotation = -0.0862458
 scale = Vector2(1.8361, 1.8361)
+
+[node name="Credits" type="Sprite2D" parent="."]
+position = Vector2(1942, 70)
+scale = Vector2(0.66076, 0.642495)
+texture = ExtResource("8_y82rp")
+
+[node name="CreditsTxt1" type="Label" parent="."]
+offset_left = 1674.0
+offset_top = 30.0
+offset_right = 2001.0
+offset_bottom = 165.0
+theme_override_font_sizes/font_size = 25
+text = "Konrad Dobosz"
+
+[node name="CreditsTxt2" type="Label" parent="."]
+offset_left = 1728.0
+offset_top = 70.0
+offset_right = 2055.0
+offset_bottom = 205.0
+theme_override_font_sizes/font_size = 25
+text = "Wiktor Kobryń"
