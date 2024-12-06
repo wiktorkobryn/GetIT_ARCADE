@@ -3,8 +3,11 @@ using System;
 
 public partial class GameMenu : Control
 {
-  public void OnPlayButtonPressed()
+  public override void _Process(double delta)
   {
-    GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/Game.tscn");
+    if (Input.IsActionJustPressed("ui_triangle"))
+    {
+      GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/Game.tscn");
+    }
   }
 }

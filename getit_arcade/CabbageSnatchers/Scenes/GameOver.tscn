@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dp8hiu772nqmc"]
+[gd_scene load_steps=5 format=3 uid="uid://dp8hiu772nqmc"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/GameOver.cs" id="1_b472h"]
 [ext_resource type="Texture2D" uid="uid://dvnurk8n8dhyy" path="res://CabbageSnatchers/Textures/UI/Panels/PopupGameOver.png" id="1_m0quc"]
+[ext_resource type="Texture2D" uid="uid://yb12uwhv3hyp" path="res://UI/Textures/InputIndicators/InputCross.png" id="3_ufoif"]
+[ext_resource type="Texture2D" uid="uid://bws0miyl2rh2p" path="res://UI/Textures/InputIndicators/InputCircle.png" id="4_vgxyj"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -19,13 +21,44 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -960.0
-offset_top = -540.0
-offset_right = 959.0
-offset_bottom = 537.0
+offset_left = -959.5
+offset_top = -538.5
+offset_right = 959.5
+offset_bottom = 538.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_m0quc")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InputCross" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 530.5
+offset_top = -240.5
+offset_right = 620.5
+offset_bottom = -150.5
+grow_vertical = 0
+texture = ExtResource("3_ufoif")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="InputCircle" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -672.5
+offset_top = -244.5
+offset_right = -582.5
+offset_bottom = -154.5
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("4_vgxyj")
 expand_mode = 1
 stretch_mode = 5
 

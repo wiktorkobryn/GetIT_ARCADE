@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ydt4i5csrthb"]
+
+[ext_resource type="Texture2D" uid="uid://b3a0qw315f6bp" path="res://CabbageSnatchers/Textures/UI/Powerups/PowerupHealth.png" id="1_617wr"]
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Collectible.cs" id="1_cm2fo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vjid1"]
+radius = 15.1327
+
+[node name="Collectible" type="Area2D"]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_cm2fo")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_617wr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vjid1")
+
+[connection signal="area_entered" from="." to="." method="OnAreaEntered"]
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

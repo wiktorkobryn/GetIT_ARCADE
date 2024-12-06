@@ -7,6 +7,10 @@ public partial class Player : CharacterBody2D
 	public float shot_delay = 0.3f;
 	[Export]
 	public int HP = 7;
+	[Export]
+	public int score = 0;
+
+	public const int MAX_HP = 7;
 
 	public const float MAX_SPEED = 200.0f;
 	public const float ACCELERATION = 700.0f;
@@ -98,7 +102,17 @@ public partial class Player : CharacterBody2D
 		{
 			isAlive = false;
 			animatedSprite.Play("Death");
-			EmitSignal(SignalName.Death, 200);
+			EmitSignal(SignalName.Death, score);
 		}
+	}
+
+	public void AddHealth(int value)
+	{
+		HP = Math.Min(HP + value, MAX_HP);
+		EmitSignal(SignalName.UpdateHealthBarHud, HP);
+	}
+	void OnEnemySpawnerAddScore(int value)
+	{
+		score += value;
 	}
 }

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddh0glkd1reiu"]
+[gd_scene load_steps=7 format=3 uid="uid://ddh0glkd1reiu"]
 
 [ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="1_cs5qy"]
 [ext_resource type="PackedScene" uid="uid://bkurytjbyi2xu" path="res://CabbageSnatchers/Scenes/HUD.tscn" id="2_4q8on"]
 [ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="2_j3q4j"]
 [ext_resource type="Texture2D" uid="uid://drijat3lm46fe" path="res://CabbageSnatchers/Textures/Scene/Floor/FlooringAdjustments/FloorBcg.png" id="2_sx77o"]
 [ext_resource type="PackedScene" uid="uid://dp8hiu772nqmc" path="res://CabbageSnatchers/Scenes/GameOver.tscn" id="3_qmuqh"]
+[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/EnemyBroc.tscn" id="7_lixol"]
 
 [node name="Game" type="Node"]
 
@@ -16,6 +17,7 @@ scale = Vector2(0.826786, 0.786111)
 texture = ExtResource("2_sx77o")
 
 [node name="EnemySpawner" parent="." instance=ExtResource("2_j3q4j")]
+enemyScene = ExtResource("7_lixol")
 
 [node name="Marker2D" parent="EnemySpawner/SpawnPoints" index="0"]
 position = Vector2(1844, 188)
@@ -48,6 +50,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 size_flags_horizontal = 0
 
+[connection signal="AddScore" from="EnemySpawner" to="Player" method="OnEnemySpawnerAddScore"]
 [connection signal="Death" from="Player" to="EnemySpawner" method="OnPlayerDeath"]
 [connection signal="Death" from="Player" to="UI/HUD" method="OnPlayerDeath"]
 [connection signal="Death" from="Player" to="UI/GameOver" method="OnPlayerDeath"]
