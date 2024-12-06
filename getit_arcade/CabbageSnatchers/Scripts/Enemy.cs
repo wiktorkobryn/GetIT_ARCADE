@@ -33,6 +33,11 @@ public partial class Enemy : CharacterBody2D
 		Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
 		animatedSprite.Play("Run");
 
+		if(Position.X > player.Position.X)
+			animatedSprite.FlipH = true;
+		else
+			animatedSprite.FlipH = false;
+
 		MoveAndSlide();
 	}
 
@@ -50,6 +55,10 @@ public partial class Enemy : CharacterBody2D
 			animatedSprite.Animation = "Death";
 			//corpseTimer.Start();
 			collisionShape.SetDeferred("disabled", true);
+
+			// disabling collider in next frame
+			GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+			SetPhysicsProcess(false);
 		}
 	}
 
