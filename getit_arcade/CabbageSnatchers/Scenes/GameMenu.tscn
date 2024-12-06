@@ -1,12 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://h2t1nfpiry7r"]
+[gd_scene load_steps=12 format=3 uid="uid://h2t1nfpiry7r"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/GameMenu.cs" id="1_4vea2"]
-[ext_resource type="Texture2D" uid="uid://drijat3lm46fe" path="res://CabbageSnatchers/Textures/Scene/Floor/FlooringAdjustments/FloorBcg.png" id="1_8kxgl"]
 [ext_resource type="Texture2D" uid="uid://bk8ffo7kjv028" path="res://CabbageSnatchers/Textures/UI/Panels/PopupStartGame.png" id="2_gcunl"]
-[ext_resource type="Texture2D" uid="uid://hhi8kljmx6tr" path="res://CabbageSnatchers/Textures/Scene/PropsStatic/PropPotBroken.png" id="3_6aswb"]
+[ext_resource type="Texture2D" uid="uid://cj5pvmbtl43i1" path="res://CabbageSnatchers/Textures/UI/Panels/MenuBackground.png" id="2_j4qyl"]
 [ext_resource type="Texture2D" uid="uid://bsnetnaqwwoq0" path="res://UI/Textures/InputIndicators/InputTriangle.png" id="4_0loo7"]
-[ext_resource type="Texture2D" uid="uid://cmktkr5y48ta4" path="res://CabbageSnatchers/Textures/Scene/PropsStatic/PropPlant3.png" id="4_u1vcj"]
-[ext_resource type="Texture2D" uid="uid://cioa1knl3ih6r" path="res://CabbageSnatchers/Textures/Scene/PropsStatic/PropBucket.png" id="5_18qfk"]
+[ext_resource type="PackedScene" uid="uid://c38n62346hvav" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant3.tscn" id="5_t6280"]
+[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="6_vn1tr"]
+[ext_resource type="PackedScene" uid="uid://dwis5vcbjeowo" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant2.tscn" id="7_57v32"]
+[ext_resource type="PackedScene" uid="uid://daeckbcp5w85v" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPotBroken.tscn" id="8_ehpof"]
+[ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="9_d00pg"]
+[ext_resource type="PackedScene" uid="uid://dhyixj6u61ngr" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropValve.tscn" id="10_6wvh6"]
+[ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="11_mc4ld"]
 
 [node name="GameMenu" type="Control"]
 layout_mode = 3
@@ -18,9 +22,9 @@ grow_vertical = 2
 script = ExtResource("1_4vea2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(951.5, 549)
-scale = Vector2(0.945357, 0.87)
-texture = ExtResource("1_8kxgl")
+position = Vector2(979, 581)
+scale = Vector2(0.753111, 0.693078)
+texture = ExtResource("2_j4qyl")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -35,6 +39,7 @@ offset_right = 960.0
 offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.00121, 1)
 texture = ExtResource("2_gcunl")
 expand_mode = 1
 stretch_mode = 5
@@ -56,17 +61,87 @@ texture = ExtResource("4_0loo7")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="PropPotBroken" type="Sprite2D" parent="."]
-position = Vector2(1787, 876)
-scale = Vector2(0.21, 0.21)
-texture = ExtResource("3_6aswb")
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="PropPlant3" type="Sprite2D" parent="."]
-position = Vector2(1781, 829)
-scale = Vector2(0.3575, 0.3575)
-texture = ExtResource("4_u1vcj")
+[node name="PropPlant2" parent="Props" instance=ExtResource("5_t6280")]
+position = Vector2(1726, 1113)
 
-[node name="PropBucket" type="Sprite2D" parent="."]
-position = Vector2(258, 881)
-scale = Vector2(0.248333, 0.248333)
-texture = ExtResource("5_18qfk")
+[node name="PropPlant10" parent="Props" instance=ExtResource("5_t6280")]
+position = Vector2(282, 1176)
+scale = Vector2(1.11457, 1.11457)
+
+[node name="PropPlant11" parent="Props" instance=ExtResource("5_t6280")]
+position = Vector2(254, 1077)
+rotation = 0.508252
+scale = Vector2(1.37679, 1.37679)
+
+[node name="PropPlant5" parent="Props" instance=ExtResource("5_t6280")]
+position = Vector2(95, 628)
+rotation = 0.0705143
+scale = Vector2(-1, 1)
+
+[node name="PropPlant1" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(1722, 908)
+scale = Vector2(1.38371, 1.38371)
+
+[node name="PropPlant3" parent="Props" instance=ExtResource("7_57v32")]
+position = Vector2(1609, 1026)
+rotation = -0.342512
+
+[node name="PropPlant4" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(1837, 856)
+scale = Vector2(1.78277, 1.78277)
+
+[node name="PropPlant12" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(1897, 1259)
+scale = Vector2(1.78277, 1.78277)
+
+[node name="PropPlant13" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(2008, 1081)
+scale = Vector2(1.78277, 1.78277)
+
+[node name="PropPlant14" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(1624, 1243)
+scale = Vector2(-1.31981, 1.31981)
+
+[node name="PropPlant7" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(22.9999, 965)
+scale = Vector2(1.78277, 1.78277)
+
+[node name="PropPlant8" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(187, 1066)
+scale = Vector2(1.78277, 1.78277)
+
+[node name="PropPlant9" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(369, 1125)
+rotation = 0.138601
+scale = Vector2(-1.18076, 1.18076)
+
+[node name="PropPlant6" parent="Props" instance=ExtResource("6_vn1tr")]
+position = Vector2(1813, 1037)
+scale = Vector2(-1.2879, 1.2879)
+skew = -0.0698132
+
+[node name="PropPotBroken" parent="Props" instance=ExtResource("8_ehpof")]
+position = Vector2(1666, 999)
+scale = Vector2(-1.246, 1.246)
+
+[node name="PropPipe" parent="Props" instance=ExtResource("9_d00pg")]
+position = Vector2(59, 611)
+rotation = 0.137149
+scale = Vector2(1, 1)
+
+[node name="PropPipe2" parent="Props" instance=ExtResource("9_d00pg")]
+position = Vector2(268, 679)
+rotation = 0.469472
+
+[node name="PropValve" parent="Props" instance=ExtResource("10_6wvh6")]
+position = Vector2(444, 773)
+rotation = 0.667439
+scale = Vector2(1, 1)
+
+[node name="PropWateringCan" parent="Props" instance=ExtResource("11_mc4ld")]
+position = Vector2(172, 1084)
+rotation = -0.0862458
+scale = Vector2(1.8361, 1.8361)

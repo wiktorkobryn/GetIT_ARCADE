@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c8emyo08g0xko"]
+[gd_scene load_steps=11 format=3 uid="uid://c8emyo08g0xko"]
 
 [ext_resource type="Texture2D" uid="uid://da3pt4u55rw02" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks1.png" id="1_gi0vp"]
 [ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="2_m3uow"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dwis5vcbjeowo" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant2.tscn" id="7_6ooo2"]
 [ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="8_lbn7f"]
 [ext_resource type="PackedScene" uid="uid://cq4gcn2unxeir" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPotShattered.tscn" id="9_xqwlx"]
+[ext_resource type="PackedScene" uid="uid://c38n62346hvav" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant3.tscn" id="10_1fqjm"]
 
 [node name="Scene1" type="Node2D"]
 y_sort_enabled = true
@@ -156,3 +157,29 @@ skew = -0.113446
 [node name="PropPlant11" parent="Props" instance=ExtResource("8_lbn7f")]
 position = Vector2(1872, 1176)
 scale = Vector2(1.19823, 1.19823)
+
+[node name="PropPlant2" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(116, 1213)
+
+[node name="PropPlant3" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(217, 288)
+
+[node name="PropPlant4" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(1117, 253)
+rotation = -0.388666
+scale = Vector2(-1, 1)
+
+[node name="PropPlant5" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(66, 1139)
+rotation = -0.127777
+scale = Vector2(-1.62054, 1.62054)
+
+[node name="PropPlant6" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(1303, 164)
+rotation = -0.220419
+scale = Vector2(1.5199, 1.5199)
+
+[node name="PropPlant7" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(1303, 164)
+rotation = -0.220419
+scale = Vector2(1.5199, 1.5199)

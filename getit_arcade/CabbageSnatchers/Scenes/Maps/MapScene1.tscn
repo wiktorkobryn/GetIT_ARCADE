@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://r30ty0424din"]
+[gd_scene load_steps=9 format=3 uid="uid://r30ty0424din"]
 
 [ext_resource type="Texture2D" uid="uid://dwvfjgo6kp74m" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks3.png" id="1_gajrv"]
 [ext_resource type="PackedScene" uid="uid://5hfybomtoved" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropFertilizer.tscn" id="3_as4df"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="6_g6r8s"]
 [ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropTools.tscn" id="7_eguew"]
 [ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="7_t16rt"]
+[ext_resource type="PackedScene" uid="uid://c38n62346hvav" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant3.tscn" id="8_g7pg5"]
 
 [node name="Scene1" type="Node2D"]
 y_sort_enabled = true
@@ -182,3 +183,14 @@ scale = Vector2(1.33037, -1.33037)
 position = Vector2(2031, 47)
 rotation = 2.79874
 scale = Vector2(1.33037, -1.33037)
+
+[node name="PropPlant21" parent="Props" instance=ExtResource("8_g7pg5")]
+position = Vector2(1605, 165)
+
+[node name="PropPlant22" parent="Props" instance=ExtResource("8_g7pg5")]
+position = Vector2(2000, 677)
+
+[node name="PropPlant23" parent="Props" instance=ExtResource("8_g7pg5")]
+position = Vector2(68, 387)
+rotation = 3.14159
+scale = Vector2(1, -1)
