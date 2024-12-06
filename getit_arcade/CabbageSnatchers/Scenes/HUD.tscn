@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bkurytjbyi2xu"]
+[gd_scene load_steps=7 format=3 uid="uid://bkurytjbyi2xu"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Hud.cs" id="1_grx6d"]
 [ext_resource type="Texture2D" uid="uid://bdgl7831hpq5r" path="res://CabbageSnatchers/Textures/UI/Panels/IngameHealth.png" id="1_wbdfh"]
 [ext_resource type="Texture2D" uid="uid://ch3gahvmv2sqd" path="res://CabbageSnatchers/Textures/UI/Panels/IngameHeathPoint.png" id="2_uiob4"]
 [ext_resource type="Texture2D" uid="uid://bblkc0annqqxq" path="res://CabbageSnatchers/Textures/UI/Panels/IngameWeapon1.png" id="4_p1u0y"]
 [ext_resource type="Texture2D" uid="uid://mfgjnvacpj78" path="res://CabbageSnatchers/Textures/UI/Panels/IngameWeapon2.png" id="5_4uojs"]
+[ext_resource type="Texture2D" uid="uid://b2322v8eo67ij" path="res://UI/Textures/InputIndicators/InputR1.png" id="6_a3tbc"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -94,3 +95,8 @@ offset_bottom = 213.0
 texture = ExtResource("5_4uojs")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="InputR1" type="Sprite2D" parent="."]
+position = Vector2(152, 191)
+scale = Vector2(0.21375, 0.21375)
+texture = ExtResource("6_a3tbc")
