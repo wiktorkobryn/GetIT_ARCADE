@@ -58,7 +58,7 @@ public partial class EnemySpawner : Node2D
 
   public void OnDifficultyScalerTimerTimeout()
   {
-      maxEnemiesSpawned += maxEnemiesIncrement;
-      spawnTimer.WaitTime *= timerReducerPercentage;
+	  maxEnemiesSpawned += maxEnemiesIncrement;
+	  spawnTimer.WaitTime *= timerReducerPercentage;
   }
 }

@@ -20,3 +20,4 @@ wait_time = 30.0
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="OnSpawnTimerTimeout"]
+[connection signal="timeout" from="DifficultyScaler" to="." method="OnDifficultyScalerTimerTimeout"]
