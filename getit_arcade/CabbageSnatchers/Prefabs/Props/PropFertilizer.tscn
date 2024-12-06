@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://5hfybomtoved"]
+
+[ext_resource type="Texture2D" uid="uid://cpe7iqib86e3y" path="res://CabbageSnatchers/Textures/Scene/PropsStatic/PropFertilizer.png" id="1_r76pq"]
+[ext_resource type="Texture2D" uid="uid://btg7ujm6gsria" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowBig.png" id="2_hpv4h"]
+
+[node name="PropFertilizer" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -6.445)
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("1_r76pq")
+offset = Vector2(0, -211.475)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-9, -18.905)
+rotation = 0.0666434
+scale = Vector2(0.361073, 0.442521)
+texture = ExtResource("2_hpv4h")
+offset = Vector2(0, 90.185)

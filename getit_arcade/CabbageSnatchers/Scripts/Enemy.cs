@@ -25,7 +25,7 @@ public partial class Enemy : CharacterBody2D
 
 	public override void _Ready()
 	{
-		player = GetNode<Player>("/root/Game/Player");
+		player = GetNode<Player>("/root/Game/Scene/Player");
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		collisionShape = GetNode<CollisionShape2D>("Hurtbox/CollisionShape2D");
 		corpseTimer = GetNode<Timer>("CorpseTimer");
@@ -41,6 +41,11 @@ public partial class Enemy : CharacterBody2D
 		Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
 		animatedSprite.Play("Run");
 
+		if(Position.X > player.Position.X)
+			animatedSprite.FlipH = true;
+		else
+			animatedSprite.FlipH = false;
+
 		MoveAndSlide();
 	}
 
@@ -49,12 +54,33 @@ public partial class Enemy : CharacterBody2D
 		if (!isAlive) return;
 
 		animatedSprite.Play("Damage");
+
 		HP -= 1;
 
 		if (HP == 0)
 		{
-			HandleDeath();
+			KillUnit();
 		}
+	}
+
+	public void KillUnit()
+	{
+		isAlive = false;
+		animatedSprite.Animation = "Death";
+		//corpseTimer.Start();
+		collisionShape.SetDeferred("disabled", true);
+
+		// disabling collider in next frame
+		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+		SetPhysicsProcess(false);
+
+		EmitSignal(SignalName.Killed, ENEMY_TYPE);
+        Random r = new Random();
+
+        if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
+        {
+        	CallDeferred("DropCollectible");
+        }
 	}
 
 	private void OnCorpseTimerTimeout()
@@ -62,28 +88,13 @@ public partial class Enemy : CharacterBody2D
 		QueueFree();
 	}
 
-	private void HandleDeath()
-	{
-		isAlive = false;
-		animatedSprite.Animation = "Death";
-		//corpseTimer.Start();
-		collisionShape.SetDeferred("disabled", true);
-		EmitSignal(SignalName.Killed, ENEMY_TYPE);
-		Random r = new Random();
-
-		if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
-		{
-			CallDeferred("DropCollectible");
-		}
-	}
-
 	private void DropCollectible()
-	{
-		var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
-		var collectible = collectible_scene.Instantiate<Collectible>();
+    {
+    	var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
+    	var collectible = collectible_scene.Instantiate<Collectible>();
 
-		collectible.GlobalPosition = this.GlobalPosition;
-		collectible.collectibleType = CollectibleType.HEALTH;
-		GetNode("/root/Game/World").AddChild(collectible);
-	}
+    	collectible.GlobalPosition = this.GlobalPosition;
+    	collectible.collectibleType = CollectibleType.HEALTH;
+    	GetNode("/root/Game/World").AddChild(collectible);
+    }
 }

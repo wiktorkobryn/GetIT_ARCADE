@@ -1,0 +1,134 @@
+[gd_scene load_steps=8 format=3 uid="uid://r30ty0424din"]
+
+[ext_resource type="Texture2D" uid="uid://da3pt4u55rw02" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks1.png" id="1_8757f"]
+[ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="3_2066u"]
+[ext_resource type="PackedScene" uid="uid://5hfybomtoved" path="res://CabbageSnatchers/Prefabs/Props/PropFertilizer.tscn" id="3_as4df"]
+[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/EnemyBroc.tscn" id="4_782iu"]
+[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Prefabs/Props/PropBucket.tscn" id="4_hk85e"]
+[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Prefabs/Props/PropPlant1.tscn" id="6_g6r8s"]
+[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Prefabs/Props/PropTools.tscn" id="7_eguew"]
+
+[node name="Scene1" type="Node2D"]
+y_sort_enabled = true
+
+[node name="FloorBcg" type="Sprite2D" parent="."]
+position = Vector2(1032, -132)
+scale = Vector2(0.767525, 0.729765)
+texture = ExtResource("1_8757f")
+offset = Vector2(0, 1000)
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="PropBucket" parent="Props" instance=ExtResource("4_hk85e")]
+position = Vector2(1019, 1053)
+
+[node name="PropBucket2" parent="Props" instance=ExtResource("4_hk85e")]
+position = Vector2(112, 1071)
+scale = Vector2(-1, 1)
+
+[node name="PropFertilizer1" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(1854, 694)
+rotation = 3.14159
+scale = Vector2(1.24, -1.16)
+skew = 0.118682
+
+[node name="PropFertilizer4" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(1679, 666)
+scale = Vector2(0.995, 0.95)
+skew = -0.0698132
+
+[node name="PropFertilizer2" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(125, 392)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="PropFertilizer5" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(200, 334)
+rotation = 3.14159
+scale = Vector2(1.21358, -1.12245)
+skew = -0.0715585
+
+[node name="PropFertilizer3" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(1788, 605)
+rotation = 3.14159
+scale = Vector2(1.33021, -1.33021)
+
+[node name="PropPlant1" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1163, 1056)
+
+[node name="PropPlant11" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1105, 1168)
+
+[node name="PropPlant12" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1241, 1145)
+scale = Vector2(1.28803, 1.28803)
+
+[node name="PropPlant13" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1910, 1109)
+scale = Vector2(1.28803, 1.28803)
+
+[node name="PropPlant14" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1828, 1191)
+scale = Vector2(1.28803, 1.28803)
+
+[node name="PropPlant15" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1769, 1086)
+scale = Vector2(-0.988, 0.988)
+
+[node name="PropPlant7" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1347, 218)
+
+[node name="PropPlant8" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1347, 218)
+
+[node name="PropPlant9" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(59, 1033)
+
+[node name="PropPlant10" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(149, 1010)
+scale = Vector2(-1.33, 1.33)
+
+[node name="PropPlant3" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(106, 304)
+scale = Vector2(-1.654, 1.654)
+
+[node name="PropPlant6" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(295, 331)
+scale = Vector2(1.14254, 1.14254)
+
+[node name="PropPlant2" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1167, 241)
+scale = Vector2(1.64788, 1.64788)
+
+[node name="PropPlant4" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1858, 512)
+scale = Vector2(1.73206, 1.73206)
+
+[node name="PropPlant5" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1657, 594)
+rotation = 3.14159
+scale = Vector2(1.59158, -1.59158)
+skew = -0.143117
+
+[node name="Scene" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="Scene" instance=ExtResource("3_2066u")]
+y_sort_enabled = true
+position = Vector2(922, 540)
+shot_delay = 0.3
+
+[node name="EnemyTest" parent="Scene" instance=ExtResource("4_782iu")]
+position = Vector2(1420, 724)
+
+[node name="PropPlant3" parent="." instance=ExtResource("6_g6r8s")]
+position = Vector2(1241, 269)
+scale = Vector2(-1.231, 1.231)
+skew = 0.0244346
+
+[node name="PropTools" parent="." instance=ExtResource("7_eguew")]
+position = Vector2(333, 424)
+
+[node name="PropTools2" parent="." instance=ExtResource("7_eguew")]
+position = Vector2(1754, 785)

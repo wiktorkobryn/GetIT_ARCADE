@@ -29,7 +29,9 @@ project/assembly_name="GetIT_arcade"
 [file_customization]
 
 folder_colors={
+"res://CabbageSnatchers/Prefabs/": "orange",
 "res://CabbageSnatchers/Scenes/": "yellow",
+"res://CabbageSnatchers/Scenes/Maps/": "gray",
 "res://CabbageSnatchers/Scripts/": "green",
 "res://CabbageSnatchers/Textures/": "blue",
 "res://ExampleModule/Models/": "red",

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dd4xsjxdaurws"]
+[gd_scene load_steps=18 format=3 uid="uid://dd4xsjxdaurws"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_b8kub"]
 [ext_resource type="Texture2D" uid="uid://bh5sctirojp7k" path="res://CabbageSnatchers/Textures/EnemyBroc/Damage/BrocDamage.001.png" id="1_ifp1l"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dc4xm788q6x6n" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.004.png" id="10_ydwex"]
 [ext_resource type="Texture2D" uid="uid://ck0t1o3nmdpvi" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.005.png" id="11_78lc4"]
 [ext_resource type="PackedScene" uid="uid://jlhl0u0jm8vo" path="res://CabbageSnatchers/Scenes/Hurtbox.tscn" id="13_xcu1x"]
+[ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="14_j8t70"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i4pif"]
 animations = [{
@@ -77,16 +78,18 @@ radius = 15.0
 radius = 51.0098
 
 [node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_b8kub")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(5, -54)
+position = Vector2(5, -1.1)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_i4pif")
 animation = &"Idle"
 autoplay = "Idle"
+offset = Vector2(0, -211.81)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(5, -15)
@@ -102,6 +105,13 @@ shape = SubResource("CircleShape2D_s3e8g")
 debug_color = Color(0.96034, 0.0435504, 0.491865, 0.42)
 
 [node name="CorpseTimer" type="Timer" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(6, -10)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_j8t70")
+offset = Vector2(0, 40)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]
 [connection signal="timeout" from="CorpseTimer" to="." method="OnCorpseTimerTimeout"]

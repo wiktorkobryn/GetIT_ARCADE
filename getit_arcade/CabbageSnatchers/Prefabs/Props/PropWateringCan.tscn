@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhy8tf8sf44yv"]
+
+[ext_resource type="Texture2D" uid="uid://bv38mpgj4pbta" path="res://CabbageSnatchers/Textures/Scene/PropsStatic/PropWateringCan.png" id="1_6mq54"]
+[ext_resource type="Texture2D" uid="uid://btg7ujm6gsria" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowBig.png" id="2_2juud"]
+
+[node name="PropWateringCan" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -6.445)
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("1_6mq54")
+offset = Vector2(0, -202.435)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-12, -22)
+rotation = 0.0544215
+scale = Vector2(0.205501, 0.458459)
+texture = ExtResource("2_2juud")
+offset = Vector2(0, 64.11)

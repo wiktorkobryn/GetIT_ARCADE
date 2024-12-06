@@ -104,6 +104,12 @@ public partial class Player : CharacterBody2D
 			animatedSprite.Play("Death");
 			EmitSignal(SignalName.Death, score);
 		}
+		else
+		{
+			Enemy enemy = area.GetParent() as Enemy;
+			if(enemy != null)
+				enemy.KillUnit();
+		}
 	}
 
 	public void AddHealth(int value)
@@ -111,6 +117,7 @@ public partial class Player : CharacterBody2D
 		HP = Math.Min(HP + value, MAX_HP);
 		EmitSignal(SignalName.UpdateHealthBarHud, HP);
 	}
+
 	void OnEnemySpawnerAddScore(int value)
 	{
 		score += value;
