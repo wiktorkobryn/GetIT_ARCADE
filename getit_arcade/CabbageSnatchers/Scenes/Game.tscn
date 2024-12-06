@@ -1,11 +1,13 @@
-[gd_scene load_steps=8 format=3 uid="uid://ddh0glkd1reiu"]
+[gd_scene load_steps=10 format=3 uid="uid://ddh0glkd1reiu"]
 
 [ext_resource type="Texture2D" uid="uid://da3pt4u55rw02" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks1.png" id="1_80s7b"]
 [ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="1_cs5qy"]
 [ext_resource type="PackedScene" uid="uid://bkurytjbyi2xu" path="res://CabbageSnatchers/Scenes/HUD.tscn" id="2_4q8on"]
 [ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="2_j3q4j"]
+[ext_resource type="PackedScene" uid="uid://r30ty0424din" path="res://CabbageSnatchers/Scenes/Maps/MapScene1.tscn" id="2_w1hlf"]
 [ext_resource type="PackedScene" uid="uid://dp8hiu772nqmc" path="res://CabbageSnatchers/Scenes/GameOver.tscn" id="3_qmuqh"]
-[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/EnemyBroc.tscn" id="6_gxm8d"]
+[ext_resource type="PackedScene" uid="uid://dsmk3fuomfxh8" path="res://CabbageSnatchers/Scenes/Maps/MapScene2.tscn" id="3_u78sg"]
+[ext_resource type="PackedScene" uid="uid://c8emyo08g0xko" path="res://CabbageSnatchers/Scenes/Maps/MapScene3.tscn" id="4_c5cfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi2ea"]
 size = Vector2(205, 1471)
@@ -19,10 +21,19 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="FloorBcg" type="Sprite2D" parent="Scene/World"]
+visible = false
 position = Vector2(1032, -132)
 scale = Vector2(0.767525, 0.729765)
 texture = ExtResource("1_80s7b")
 offset = Vector2(0, 1000)
+
+[node name="Scene1" parent="Scene/World" instance=ExtResource("2_w1hlf")]
+visible = false
+
+[node name="Scene2" parent="Scene/World" instance=ExtResource("3_u78sg")]
+
+[node name="Scene3" parent="Scene/World" instance=ExtResource("4_c5cfm")]
+visible = false
 
 [node name="EnemySpawner" parent="Scene" instance=ExtResource("2_j3q4j")]
 y_sort_enabled = true
@@ -37,14 +48,11 @@ position = Vector2(108, 839)
 position = Vector2(1755, 919)
 
 [node name="SpawnTimer" parent="Scene/EnemySpawner" index="1"]
-autostart = false
+wait_time = 2.0
 
 [node name="Player" parent="Scene" instance=ExtResource("1_cs5qy")]
 position = Vector2(922, 540)
 shot_delay = 0.3
-
-[node name="EnemyTest" parent="Scene" instance=ExtResource("6_gxm8d")]
-position = Vector2(1420, 724)
 
 [node name="UI" type="Node" parent="Scene"]
 
@@ -86,11 +94,5 @@ position = Vector2(438, 1226)
 rotation = 1.5708
 scale = Vector2(1, 1.65)
 shape = SubResource("RectangleShape2D_yi2ea")
-
-[connection signal="AddScore" from="EnemySpawner" to="Player" method="OnEnemySpawnerAddScore"]
-[connection signal="Death" from="Player" to="EnemySpawner" method="OnPlayerDeath"]
-[connection signal="Death" from="Player" to="UI/HUD" method="OnPlayerDeath"]
-[connection signal="Death" from="Player" to="UI/GameOver" method="OnPlayerDeath"]
-[connection signal="UpdateHealthBarHud" from="Player" to="UI/HUD" method="OnPlayerUpdateHealthBarHud"]
 
 [editable path="Scene/EnemySpawner"]

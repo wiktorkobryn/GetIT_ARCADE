@@ -75,12 +75,12 @@ public partial class Enemy : CharacterBody2D
 		SetPhysicsProcess(false);
 
 		EmitSignal(SignalName.Killed, ENEMY_TYPE);
-        Random r = new Random();
+		Random r = new Random();
 
-        if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
-        {
-        	CallDeferred("DropCollectible");
-        }
+		if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
+		{
+			CallDeferred("DropCollectible");
+		}
 	}
 
 	private void OnCorpseTimerTimeout()
@@ -89,12 +89,12 @@ public partial class Enemy : CharacterBody2D
 	}
 
 	private void DropCollectible()
-    {
-    	var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
-    	var collectible = collectible_scene.Instantiate<Collectible>();
+	{
+		var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
+		var collectible = collectible_scene.Instantiate<Collectible>();
 
-    	collectible.GlobalPosition = this.GlobalPosition;
-    	collectible.collectibleType = CollectibleType.HEALTH;
-    	GetNode("/root/Game/World").AddChild(collectible);
-    }
+		collectible.GlobalPosition = this.GlobalPosition;
+		collectible.collectibleType = CollectibleType.HEALTH;
+		GetNode("/root/Game/Scene/World").AddChild(collectible);
+	}
 }

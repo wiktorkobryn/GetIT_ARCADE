@@ -5,7 +5,7 @@
 
 [node name="EnemySpawner" type="Node2D"]
 script = ExtResource("1_xv4ea")
-enemy_scene = ExtResource("2_autya")
+enemyScene = ExtResource("2_autya")
 
 [node name="SpawnPoints" type="Node" parent="."]
 

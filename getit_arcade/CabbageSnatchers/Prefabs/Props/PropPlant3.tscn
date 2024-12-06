@@ -10,11 +10,11 @@ y_sort_enabled = true
 position = Vector2(0, -6.445)
 scale = Vector2(0.365, 0.365)
 texture = ExtResource("1_fhlx1")
-offset = Vector2(0, -205.94)
+offset = Vector2(0, -507.94)
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.54902)
-position = Vector2(4, -86)
+position = Vector2(-0.999998, -221)
 scale = Vector2(0.323915, 0.251029)
 texture = ExtResource("2_o12x4")
 offset = Vector2(0, 300)
