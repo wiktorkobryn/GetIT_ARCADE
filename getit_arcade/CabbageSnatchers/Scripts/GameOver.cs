@@ -10,27 +10,32 @@ public partial class GameOver : Control
 
   public override void _Ready()
   {
-    this.SetProcess(false);
-    scoreLabel = GetNode<Label>("Score");
-    scoreLabel.Text = Convert.ToString(score);
+	this.SetProcess(false);
+	scoreLabel = GetNode<Label>("Score");
+	scoreLabel.Text = Convert.ToString(score);
   }
 
   public override void _Process(double delta)
   {
-    if (Input.IsActionJustPressed("ui_cross"))
-    {
-      GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/Game.tscn");
-    }
-    else if (Input.IsActionJustPressed("ui_circle"))
-    {
-      GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/GameMenu.tscn");
-    }
+	if (Input.IsActionJustPressed("ui_cross"))
+	{
+	  GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/Game.tscn");
+	}
+	else if (Input.IsActionJustPressed("ui_circle"))
+	{
+	  GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/GameMenu.tscn");
+	}
   }
 
   void OnPlayerDeath(int scoreValue)
   {
-    scoreLabel.Text = Convert.ToString(scoreValue);
-    this.SetProcess(true);
-    this.Visible = true;
+	scoreLabel.Text = Convert.ToString(scoreValue);
+	this.SetProcess(true);
+	this.Visible = true;
+  }
+
+  public void OnReturnToMenuTimerTimeout()
+  {
+	GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/GameMenu.tscn");
   }
 }
