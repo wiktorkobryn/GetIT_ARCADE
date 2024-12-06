@@ -1,25 +1,25 @@
 [gd_scene load_steps=18 format=3 uid="uid://dd4xsjxdaurws"]
 
-[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_b8kub"]
-[ext_resource type="Texture2D" uid="uid://bh5sctirojp7k" path="res://CabbageSnatchers/Textures/EnemyBroc/Damage/BrocDamage.001.png" id="1_ifp1l"]
-[ext_resource type="Texture2D" uid="uid://br8ixvx0ucbcv" path="res://CabbageSnatchers/Textures/EnemyBroc/Death/BrocDeath.001.png" id="2_e437w"]
-[ext_resource type="Texture2D" uid="uid://cqgqnd8k0lquo" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.001.png" id="3_i22y0"]
-[ext_resource type="Texture2D" uid="uid://dgaudg7o8wnb1" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.002.png" id="4_rc5n0"]
-[ext_resource type="Texture2D" uid="uid://biteeurbvvu1v" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.003.png" id="5_py8gn"]
-[ext_resource type="Texture2D" uid="uid://dr6v4aumh4er3" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.004.png" id="6_xnvtf"]
-[ext_resource type="Texture2D" uid="uid://ddxwnmpc1dx2" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.001.png" id="7_trskj"]
-[ext_resource type="Texture2D" uid="uid://caca3cld31o4i" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.002.png" id="8_kdsq4"]
-[ext_resource type="Texture2D" uid="uid://d1mac2m1roc3d" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.003.png" id="9_o0cjv"]
-[ext_resource type="Texture2D" uid="uid://dc4xm788q6x6n" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.004.png" id="10_ydwex"]
-[ext_resource type="Texture2D" uid="uid://ck0t1o3nmdpvi" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.005.png" id="11_78lc4"]
-[ext_resource type="PackedScene" uid="uid://jlhl0u0jm8vo" path="res://CabbageSnatchers/Scenes/Hurtbox.tscn" id="13_xcu1x"]
-[ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="14_j8t70"]
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_8ks7k"]
+[ext_resource type="Texture2D" uid="uid://bh5sctirojp7k" path="res://CabbageSnatchers/Textures/EnemyBroc/Damage/BrocDamage.001.png" id="2_b6iow"]
+[ext_resource type="Texture2D" uid="uid://br8ixvx0ucbcv" path="res://CabbageSnatchers/Textures/EnemyBroc/Death/BrocDeath.001.png" id="3_56c7o"]
+[ext_resource type="Texture2D" uid="uid://cqgqnd8k0lquo" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.001.png" id="4_ybm0s"]
+[ext_resource type="Texture2D" uid="uid://dgaudg7o8wnb1" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.002.png" id="5_wnp5o"]
+[ext_resource type="Texture2D" uid="uid://biteeurbvvu1v" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.003.png" id="6_06n7l"]
+[ext_resource type="Texture2D" uid="uid://dr6v4aumh4er3" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.004.png" id="7_selc5"]
+[ext_resource type="Texture2D" uid="uid://ddxwnmpc1dx2" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.001.png" id="8_jmd5x"]
+[ext_resource type="Texture2D" uid="uid://caca3cld31o4i" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.002.png" id="9_g04r7"]
+[ext_resource type="Texture2D" uid="uid://d1mac2m1roc3d" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.003.png" id="10_xummo"]
+[ext_resource type="Texture2D" uid="uid://dc4xm788q6x6n" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.004.png" id="11_k8msy"]
+[ext_resource type="Texture2D" uid="uid://ck0t1o3nmdpvi" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.005.png" id="12_xaih0"]
+[ext_resource type="PackedScene" uid="uid://jlhl0u0jm8vo" path="res://CabbageSnatchers/Scenes/Hurtbox.tscn" id="13_tjcgg"]
+[ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="14_h67st"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i4pif"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_ifp1l")
+"texture": ExtResource("2_b6iow")
 }],
 "loop": false,
 "name": &"Damage",
@@ -27,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_e437w")
+"texture": ExtResource("3_56c7o")
 }],
 "loop": true,
 "name": &"Death",
@@ -35,16 +35,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_i22y0")
+"texture": ExtResource("4_ybm0s")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_rc5n0")
+"texture": ExtResource("5_wnp5o")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_py8gn")
+"texture": ExtResource("6_06n7l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_xnvtf")
+"texture": ExtResource("7_selc5")
 }],
 "loop": true,
 "name": &"Idle",
@@ -52,19 +52,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_trskj")
+"texture": ExtResource("8_jmd5x")
 }, {
 "duration": 1.0,
-"texture": ExtResource("8_kdsq4")
+"texture": ExtResource("9_g04r7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_o0cjv")
+"texture": ExtResource("10_xummo")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_ydwex")
+"texture": ExtResource("11_k8msy")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_78lc4")
+"texture": ExtResource("12_xaih0")
 }],
 "loop": true,
 "name": &"Run",
@@ -81,7 +81,8 @@ radius = 51.0098
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 7
-script = ExtResource("1_b8kub")
+script = ExtResource("1_8ks7k")
+COLLECTIBLE_DROP_CHANCE = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, -1.1)
@@ -95,7 +96,7 @@ offset = Vector2(0, -211.81)
 position = Vector2(5, -15)
 shape = SubResource("CircleShape2D_vt5t3")
 
-[node name="Hurtbox" parent="." instance=ExtResource("13_xcu1x")]
+[node name="Hurtbox" parent="." instance=ExtResource("13_tjcgg")]
 collision_layer = 4
 collision_mask = 8
 
@@ -110,7 +111,7 @@ debug_color = Color(0.96034, 0.0435504, 0.491865, 0.42)
 modulate = Color(1, 1, 1, 0.54902)
 position = Vector2(6, -10)
 scale = Vector2(0.2, 0.2)
-texture = ExtResource("14_j8t70")
+texture = ExtResource("14_h67st")
 offset = Vector2(0, 40)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]

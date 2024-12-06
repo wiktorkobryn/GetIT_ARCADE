@@ -1,47 +1,64 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddh0glkd1reiu"]
+[gd_scene load_steps=10 format=3 uid="uid://ddh0glkd1reiu"]
 
 [ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="1_cs5qy"]
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/WorldController.cs" id="1_iig1v"]
 [ext_resource type="PackedScene" uid="uid://bkurytjbyi2xu" path="res://CabbageSnatchers/Scenes/HUD.tscn" id="2_4q8on"]
 [ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="2_j3q4j"]
-[ext_resource type="Texture2D" uid="uid://drijat3lm46fe" path="res://CabbageSnatchers/Textures/Scene/Floor/FlooringAdjustments/FloorBcg.png" id="2_sx77o"]
+[ext_resource type="PackedScene" uid="uid://r30ty0424din" path="res://CabbageSnatchers/Scenes/Maps/MapScene1.tscn" id="2_w1hlf"]
 [ext_resource type="PackedScene" uid="uid://dp8hiu772nqmc" path="res://CabbageSnatchers/Scenes/GameOver.tscn" id="3_qmuqh"]
-[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/Enemies/EnemyBroc.tscn" id="7_lixol"]
+[ext_resource type="PackedScene" uid="uid://dsmk3fuomfxh8" path="res://CabbageSnatchers/Scenes/Maps/MapScene2.tscn" id="3_u78sg"]
+[ext_resource type="PackedScene" uid="uid://c8emyo08g0xko" path="res://CabbageSnatchers/Scenes/Maps/MapScene3.tscn" id="4_c5cfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yi2ea"]
+size = Vector2(205, 1471)
 
 [node name="Game" type="Node"]
 
-[node name="World" type="Node2D" parent="."]
+[node name="Scene" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[node name="FloorBcg" type="Sprite2D" parent="World"]
-position = Vector2(955.5, 551.5)
-scale = Vector2(0.826786, 0.786111)
-texture = ExtResource("2_sx77o")
+[node name="World" type="Node2D" parent="Scene"]
+y_sort_enabled = true
+script = ExtResource("1_iig1v")
 
-[node name="EnemySpawner" parent="." instance=ExtResource("2_j3q4j")]
-enemyScene = ExtResource("7_lixol")
+[node name="Scene1" parent="Scene/World" instance=ExtResource("2_w1hlf")]
+visible = false
 
-[node name="Marker2D" parent="EnemySpawner/SpawnPoints" index="0"]
+[node name="Scene2" parent="Scene/World" instance=ExtResource("3_u78sg")]
+visible = false
+
+[node name="Scene3" parent="Scene/World" instance=ExtResource("4_c5cfm")]
+visible = false
+
+[node name="EnemySpawner" parent="Scene" instance=ExtResource("2_j3q4j")]
+y_sort_enabled = true
+
+[node name="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="0"]
 position = Vector2(1844, 188)
 
-[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="1"]
+[node name="Marker2D2" type="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="1"]
 position = Vector2(108, 839)
 
-[node name="Marker2D3" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="2"]
+[node name="Marker2D3" type="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="2"]
 position = Vector2(1755, 919)
 
-[node name="Player" parent="." instance=ExtResource("1_cs5qy")]
+[node name="SpawnTimer" parent="Scene/EnemySpawner" index="1"]
+wait_time = 2.0
+
+[node name="Player" parent="Scene" instance=ExtResource("1_cs5qy")]
 position = Vector2(922, 540)
 shot_delay = 0.3
 
-[node name="UI" type="Node" parent="."]
+[node name="UI" type="Node" parent="Scene"]
 
-[node name="HUD" parent="UI" instance=ExtResource("2_4q8on")]
+[node name="HUD" parent="Scene/UI" instance=ExtResource("2_4q8on")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="GameOver" parent="UI" instance=ExtResource("3_qmuqh")]
+[node name="GameOver" parent="Scene/UI" instance=ExtResource("3_qmuqh")]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -50,10 +67,27 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 size_flags_horizontal = 0
 
-[connection signal="AddScore" from="EnemySpawner" to="Player" method="OnEnemySpawnerAddScore"]
-[connection signal="Death" from="Player" to="EnemySpawner" method="OnPlayerDeath"]
-[connection signal="Death" from="Player" to="UI/HUD" method="OnPlayerDeath"]
-[connection signal="Death" from="Player" to="UI/GameOver" method="OnPlayerDeath"]
-[connection signal="UpdateHealthBarHud" from="Player" to="UI/HUD" method="OnPlayerUpdateHealthBarHud"]
+[node name="WorldColliders" type="StaticBody2D" parent="Scene"]
+position = Vector2(490, 10)
 
-[editable path="EnemySpawner"]
+[node name="ColliderLeft" type="CollisionShape2D" parent="Scene/WorldColliders"]
+position = Vector2(-651, 588)
+shape = SubResource("RectangleShape2D_yi2ea")
+
+[node name="ColliderRight" type="CollisionShape2D" parent="Scene/WorldColliders"]
+position = Vector2(1594, 588)
+shape = SubResource("RectangleShape2D_yi2ea")
+
+[node name="ColliderTop" type="CollisionShape2D" parent="Scene/WorldColliders"]
+position = Vector2(465, -161)
+rotation = 1.5708
+scale = Vector2(1, 1.65)
+shape = SubResource("RectangleShape2D_yi2ea")
+
+[node name="ColliderBottom" type="CollisionShape2D" parent="Scene/WorldColliders"]
+position = Vector2(438, 1226)
+rotation = 1.5708
+scale = Vector2(1, 1.65)
+shape = SubResource("RectangleShape2D_yi2ea")
+
+[editable path="Scene/EnemySpawner"]

@@ -77,3 +77,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 91
 text = "-1"
+
+[node name="ReturnToMenuTimer" type="Timer" parent="."]
+wait_time = 120.0
+autostart = true
+
+[connection signal="timeout" from="ReturnToMenuTimer" to="." method="OnReturnToMenuTimerTimeout"]

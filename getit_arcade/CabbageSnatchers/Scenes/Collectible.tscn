@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Collectible.cs" id="1_cm2fo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjid1"]
-radius = 15.1327
+radius = 23.2621
 
 [node name="Collectible" type="Area2D"]
 collision_layer = 16
@@ -12,10 +12,12 @@ collision_mask = 2
 script = ExtResource("1_cm2fo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(78.75, -41.25)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_617wr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(78.75, -41.25)
 shape = SubResource("CircleShape2D_vjid1")
 
 [connection signal="area_entered" from="." to="." method="OnAreaEntered"]

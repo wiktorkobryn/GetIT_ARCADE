@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c38n62346hvav"]
+
+[ext_resource type="Texture2D" uid="uid://cmktkr5y48ta4" path="res://CabbageSnatchers/Textures/Scene/PropsStatic/PropPlant3.png" id="1_sugan"]
+[ext_resource type="Texture2D" uid="uid://coa6n08m4t81j" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowMedium.png" id="2_4c4dy"]
+
+[node name="PropPlant2" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, -6.445)
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("1_sugan")
+offset = Vector2(0, -247.895)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(0, -90)
+scale = Vector2(0.379183, 0.26487)
+texture = ExtResource("2_4c4dy")
+offset = Vector2(0, 64.11)

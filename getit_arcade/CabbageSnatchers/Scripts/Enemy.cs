@@ -1,6 +1,15 @@
 using Godot;
 using System;
 
+public enum EnemyType
+{
+	Broc = 0,
+	Caba = 1,
+	Caro = 2,
+	Jala = 3,
+	Onio = 4
+}
+
 public partial class Enemy : CharacterBody2D
 {
 	[Export]
@@ -10,7 +19,14 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	public int HP = 3;
 	[Export]
-	public int ENEMY_TYPE = 1;
+	public int ENEMY_TYPE
+	{
+		get { return (int)type; }
+		set { type = (EnemyType)value; }
+	}
+	// Godot still does not support enum in editor..
+	private EnemyType type;
+
 	[Export]
 	public float COLLECTIBLE_DROP_CHANCE = 1f;
 	private bool isAlive = true;
@@ -41,7 +57,7 @@ public partial class Enemy : CharacterBody2D
 		Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
 		animatedSprite.Play("Run");
 
-		if (Position.X > player.Position.X)
+		if(Position.X > player.Position.X)
 			animatedSprite.FlipH = true;
 		else
 			animatedSprite.FlipH = false;
@@ -76,12 +92,12 @@ public partial class Enemy : CharacterBody2D
 		SetPhysicsProcess(false);
 
 		EmitSignal(SignalName.Killed, ENEMY_TYPE);
-		Random r = new Random();
+        Random r = new Random();
 
-		if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
-		{
-			CallDeferred("DropCollectible");
-		}
+        if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
+        {
+        	CallDeferred("DropCollectible");
+        }
 	}
 
 	private void OnCorpseTimerTimeout()
@@ -90,13 +106,13 @@ public partial class Enemy : CharacterBody2D
 	}
 
 	private void DropCollectible()
-	{
-		var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
-		var collectible = collectible_scene.Instantiate<Collectible>();
+    {
+    	var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
+    	var collectible = collectible_scene.Instantiate<Collectible>();
 
 		collectible.GlobalPosition = this.GlobalPosition;
 		collectible.collectibleType = CollectibleType.HEALTH;
-		GetNode("/root/Game/World").AddChild(collectible);
+		GetNode("/root/Game/Scene/World").AddChild(collectible);
 	}
 
 	private void PlayDeathVFX()

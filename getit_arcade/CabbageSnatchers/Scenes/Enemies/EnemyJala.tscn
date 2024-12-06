@@ -1,0 +1,122 @@
+[gd_scene load_steps=18 format=3 uid="uid://bu1sn00aiqyhj"]
+
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_pjo5t"]
+[ext_resource type="Texture2D" uid="uid://48fkco1j8kpd" path="res://CabbageSnatchers/Textures/EnemyJala/Damage/JalaDamage.001.png" id="2_86r4h"]
+[ext_resource type="Texture2D" uid="uid://67mgtr2js5k6" path="res://CabbageSnatchers/Textures/EnemyJala/Death/JalaDeath.001.png" id="3_l0oda"]
+[ext_resource type="Texture2D" uid="uid://bbbllcfpgfvrr" path="res://CabbageSnatchers/Textures/EnemyJala/Idle/JalaIdle.001.png" id="4_o0cn3"]
+[ext_resource type="Texture2D" uid="uid://cngkqtod3xyj1" path="res://CabbageSnatchers/Textures/EnemyJala/Idle/JalaIdle.002.png" id="5_arf5y"]
+[ext_resource type="Texture2D" uid="uid://dbjbunwu1tjjg" path="res://CabbageSnatchers/Textures/EnemyJala/Idle/JalaIdle.003.png" id="6_uup8s"]
+[ext_resource type="Texture2D" uid="uid://f6aopan2mrta" path="res://CabbageSnatchers/Textures/EnemyJala/Idle/JalaIdle.004.png" id="7_7s7e1"]
+[ext_resource type="Texture2D" uid="uid://bo3r2n7g7wjbs" path="res://CabbageSnatchers/Textures/EnemyJala/Run/JalaRun.001.png" id="8_nceh4"]
+[ext_resource type="Texture2D" uid="uid://5n03hrb1d115" path="res://CabbageSnatchers/Textures/EnemyJala/Run/JalaRun.002.png" id="9_7ghay"]
+[ext_resource type="Texture2D" uid="uid://cf3geia08ep36" path="res://CabbageSnatchers/Textures/EnemyJala/Run/JalaRun.003.png" id="10_3jwuy"]
+[ext_resource type="Texture2D" uid="uid://cv060xxdcfngf" path="res://CabbageSnatchers/Textures/EnemyJala/Run/JalaRun.004.png" id="11_fcy3y"]
+[ext_resource type="Texture2D" uid="uid://bh6emmoyi4kqu" path="res://CabbageSnatchers/Textures/EnemyJala/Run/JalaRun.005.png" id="12_kw431"]
+[ext_resource type="PackedScene" uid="uid://jlhl0u0jm8vo" path="res://CabbageSnatchers/Scenes/Hurtbox.tscn" id="13_ofroe"]
+[ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="14_u2x7c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i4pif"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_86r4h")
+}],
+"loop": false,
+"name": &"Damage",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l0oda")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_o0cn3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_arf5y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_uup8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7s7e1")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_nceh4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7ghay")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_3jwuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fcy3y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kw431")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt5t3"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s3e8g"]
+radius = 38.0132
+
+[node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_pjo5t")
+MAX_SPEED = 120.0
+HP = 1
+COLLECTIBLE_DROP_CHANCE = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(3, -1.135)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_i4pif")
+animation = &"Idle"
+autoplay = "Idle"
+offset = Vector2(0, -161.63)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -14)
+shape = SubResource("CircleShape2D_vt5t3")
+
+[node name="Hurtbox" parent="." instance=ExtResource("13_ofroe")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(-1, -38)
+shape = SubResource("CircleShape2D_s3e8g")
+debug_color = Color(0.96034, 0.0435504, 0.491865, 0.42)
+
+[node name="CorpseTimer" type="Timer" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(-1, -7.1)
+scale = Vector2(0.143, 0.143)
+texture = ExtResource("14_u2x7c")
+offset = Vector2(0, 40)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]
+[connection signal="timeout" from="CorpseTimer" to="." method="OnCorpseTimerTimeout"]
+
+[editable path="Hurtbox"]

@@ -1,25 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://r30ty0424din"]
+[gd_scene load_steps=9 format=3 uid="uid://r30ty0424din"]
 
-[ext_resource type="Texture2D" uid="uid://da3pt4u55rw02" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks1.png" id="1_8757f"]
-[ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="3_2066u"]
-[ext_resource type="PackedScene" uid="uid://5hfybomtoved" path="res://CabbageSnatchers/Prefabs/Props/PropFertilizer.tscn" id="3_as4df"]
-[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/Enemies/EnemyBroc.tscn" id="4_782iu"]
-[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Prefabs/Props/PropBucket.tscn" id="4_hk85e"]
-[ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="5_kq8i3"]
-[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Prefabs/Props/PropPlant1.tscn" id="6_g6r8s"]
-[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Prefabs/Props/PropTools.tscn" id="7_eguew"]
-[ext_resource type="PackedScene" uid="uid://bkurytjbyi2xu" path="res://CabbageSnatchers/Scenes/HUD.tscn" id="9_vrj5y"]
-[ext_resource type="PackedScene" uid="uid://dp8hiu772nqmc" path="res://CabbageSnatchers/Scenes/GameOver.tscn" id="10_t5qtt"]
+[ext_resource type="Texture2D" uid="uid://dwvfjgo6kp74m" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks3.png" id="1_gajrv"]
+[ext_resource type="PackedScene" uid="uid://5hfybomtoved" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropFertilizer.tscn" id="3_as4df"]
+[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropBucket.tscn" id="4_hk85e"]
+[ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="6_d8ld0"]
+[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="6_g6r8s"]
+[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropTools.tscn" id="7_eguew"]
+[ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="7_t16rt"]
+[ext_resource type="PackedScene" uid="uid://c38n62346hvav" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant3.tscn" id="8_g7pg5"]
 
-[node name="Game" type="Node2D"]
+[node name="Scene1" type="Node2D"]
 y_sort_enabled = true
-
-[node name="World" type="Node" parent="."]
 
 [node name="FloorBcg" type="Sprite2D" parent="."]
 position = Vector2(1032, -132)
 scale = Vector2(0.767525, 0.729765)
-texture = ExtResource("1_8757f")
+texture = ExtResource("1_gajrv")
 offset = Vector2(0, 1000)
 
 [node name="Props" type="Node2D" parent="."]
@@ -27,10 +23,11 @@ y_sort_enabled = true
 
 [node name="PropBucket" parent="Props" instance=ExtResource("4_hk85e")]
 position = Vector2(1019, 1053)
+scale = Vector2(1.17965, 1.17965)
 
 [node name="PropBucket2" parent="Props" instance=ExtResource("4_hk85e")]
-position = Vector2(112, 1071)
-scale = Vector2(-1, 1)
+position = Vector2(153, 1058)
+scale = Vector2(-1.4089, 1.4089)
 
 [node name="PropFertilizer1" parent="Props" instance=ExtResource("3_as4df")]
 position = Vector2(1854, 694)
@@ -88,10 +85,26 @@ position = Vector2(1347, 218)
 position = Vector2(1347, 218)
 
 [node name="PropPlant9" parent="Props" instance=ExtResource("6_g6r8s")]
-position = Vector2(59, 1033)
+position = Vector2(48, 986)
+
+[node name="PropPlant17" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(52, 1169)
+scale = Vector2(1.25521, 0.878256)
+
+[node name="PropPlant18" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(29, 1055)
+scale = Vector2(1.45285, 1.01654)
+
+[node name="PropPlant19" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1052, 1007)
+scale = Vector2(1.09554, 0.945543)
+
+[node name="PropPlant20" parent="Props" instance=ExtResource("6_g6r8s")]
+position = Vector2(1591, 1113)
+scale = Vector2(1.09554, 0.945543)
 
 [node name="PropPlant10" parent="Props" instance=ExtResource("6_g6r8s")]
-position = Vector2(149, 1010)
+position = Vector2(169, 1009)
 scale = Vector2(-1.33, 1.33)
 
 [node name="PropPlant3" parent="Props" instance=ExtResource("6_g6r8s")]
@@ -116,62 +129,68 @@ rotation = 3.14159
 scale = Vector2(1.59158, -1.59158)
 skew = -0.143117
 
-[node name="EnemySpawner" parent="." instance=ExtResource("5_kq8i3")]
-enemyScene = ExtResource("4_782iu")
-
-[node name="Marker2D" parent="EnemySpawner/SpawnPoints" index="0"]
-position = Vector2(1844, 188)
-
-[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="1"]
-position = Vector2(101, 815)
-
-[node name="SpawnTimer" parent="EnemySpawner" index="1"]
-autostart = false
-
-[node name="Scene" type="Node2D" parent="."]
-y_sort_enabled = true
-
-[node name="Player" parent="Scene" instance=ExtResource("3_2066u")]
-y_sort_enabled = true
-position = Vector2(922, 540)
-shot_delay = 0.3
-
-[node name="EnemyTest" parent="Scene" instance=ExtResource("4_782iu")]
-position = Vector2(1420, 724)
-
-[node name="PropPlant3" parent="." instance=ExtResource("6_g6r8s")]
+[node name="PropPlant16" parent="Props" instance=ExtResource("6_g6r8s")]
 position = Vector2(1241, 269)
-scale = Vector2(-1.231, 1.231)
+rotation = 3.14159
+scale = Vector2(1.231, -1.231)
 skew = 0.0244346
 
-[node name="PropTools" parent="." instance=ExtResource("7_eguew")]
+[node name="PropTools" parent="Props" instance=ExtResource("7_eguew")]
 position = Vector2(333, 424)
 
-[node name="PropTools2" parent="." instance=ExtResource("7_eguew")]
+[node name="PropTools2" parent="Props" instance=ExtResource("7_eguew")]
 position = Vector2(1754, 785)
 
-[node name="UI" type="Node" parent="."]
+[node name="PropFertilizer" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(1713, 1116)
+scale = Vector2(0.989699, 0.989699)
 
-[node name="HUD" parent="UI" instance=ExtResource("9_vrj5y")]
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-grow_horizontal = 1
-grow_vertical = 1
+[node name="PropFertilizer6" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(1007, 141)
+scale = Vector2(1.14763, 1.14763)
 
-[node name="GameOver" parent="UI" instance=ExtResource("10_t5qtt")]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-size_flags_horizontal = 0
+[node name="PropFertilizer7" parent="Props" instance=ExtResource("3_as4df")]
+position = Vector2(1254, 1025)
+scale = Vector2(-1.05549, 1.05549)
 
-[connection signal="AddScore" from="EnemySpawner" to="Scene/Player" method="OnEnemySpawnerAddScore"]
-[connection signal="Death" from="Scene/Player" to="EnemySpawner" method="OnPlayerDeath"]
-[connection signal="Death" from="Scene/Player" to="UI/HUD" method="OnPlayerDeath"]
-[connection signal="Death" from="Scene/Player" to="UI/GameOver" method="OnPlayerDeath"]
-[connection signal="UpdateHealthBarHud" from="Scene/Player" to="UI/HUD" method="OnPlayerUpdateHealthBarHud"]
+[node name="PropWateringCan" parent="Props" instance=ExtResource("6_d8ld0")]
+position = Vector2(14, 869)
+scale = Vector2(-1.503, 1.503)
 
-[editable path="EnemySpawner"]
+[node name="PropPipe" parent="Props" instance=ExtResource("7_t16rt")]
+position = Vector2(1556, 614)
+rotation = 0.261799
+
+[node name="PropPipe2" parent="Props" instance=ExtResource("7_t16rt")]
+position = Vector2(2010, 666)
+
+[node name="PropPipe3" parent="Props" instance=ExtResource("7_t16rt")]
+position = Vector2(1123, 200)
+rotation = 2.87893
+scale = Vector2(1.33037, -1.33037)
+
+[node name="PropPipe4" parent="Props" instance=ExtResource("7_t16rt")]
+position = Vector2(1428, 163)
+rotation = 3.07135
+scale = Vector2(1.33037, -1.33037)
+
+[node name="PropPipe5" parent="Props" instance=ExtResource("7_t16rt")]
+position = Vector2(1740, 128)
+rotation = 2.95526
+scale = Vector2(1.33037, -1.33037)
+
+[node name="PropPipe6" parent="Props" instance=ExtResource("7_t16rt")]
+position = Vector2(2031, 47)
+rotation = 2.79874
+scale = Vector2(1.33037, -1.33037)
+
+[node name="PropPlant21" parent="Props" instance=ExtResource("8_g7pg5")]
+position = Vector2(1605, 165)
+
+[node name="PropPlant22" parent="Props" instance=ExtResource("8_g7pg5")]
+position = Vector2(2000, 677)
+
+[node name="PropPlant23" parent="Props" instance=ExtResource("8_g7pg5")]
+position = Vector2(68, 387)
+rotation = 3.14159
+scale = Vector2(1, -1)

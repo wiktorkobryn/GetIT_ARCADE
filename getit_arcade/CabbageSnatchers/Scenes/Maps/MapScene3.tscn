@@ -1,0 +1,185 @@
+[gd_scene load_steps=11 format=3 uid="uid://c8emyo08g0xko"]
+
+[ext_resource type="Texture2D" uid="uid://da3pt4u55rw02" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks1.png" id="1_gi0vp"]
+[ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="2_m3uow"]
+[ext_resource type="PackedScene" uid="uid://dhyixj6u61ngr" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropValve.tscn" id="3_071t6"]
+[ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="4_8piha"]
+[ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropTools.tscn" id="5_bcpb7"]
+[ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropBucket.tscn" id="6_x5omy"]
+[ext_resource type="PackedScene" uid="uid://dwis5vcbjeowo" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant2.tscn" id="7_6ooo2"]
+[ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="8_lbn7f"]
+[ext_resource type="PackedScene" uid="uid://cq4gcn2unxeir" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPotShattered.tscn" id="9_xqwlx"]
+[ext_resource type="PackedScene" uid="uid://c38n62346hvav" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant3.tscn" id="10_1fqjm"]
+
+[node name="Scene1" type="Node2D"]
+y_sort_enabled = true
+
+[node name="FloorBcg" type="Sprite2D" parent="."]
+position = Vector2(1032, -132)
+scale = Vector2(0.767525, 0.729765)
+texture = ExtResource("1_gi0vp")
+offset = Vector2(0, 1000)
+
+[node name="Props" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="PropPipe" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(80, 251)
+
+[node name="PropPipe2" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(299, 281)
+rotation = 0.261799
+
+[node name="PropPipe3" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(1002, 247)
+rotation = -0.240059
+scale = Vector2(-1, 1)
+
+[node name="PropPipe6" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(1558, 729)
+rotation = -0.311321
+scale = Vector2(-1, 1)
+
+[node name="PropPipe11" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(1402, 1062)
+rotation = -0.311321
+scale = Vector2(-1, 1)
+
+[node name="PropPipe12" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(1183, 1152)
+rotation = -0.45649
+scale = Vector2(-1, 1)
+
+[node name="PropPipe13" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(983, 1264)
+rotation = -0.608089
+scale = Vector2(-1, 1)
+
+[node name="PropPipe9" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(-48, 1193)
+rotation = 0.0907752
+
+[node name="PropPipe10" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(201, 1205)
+rotation = -0.0489969
+
+[node name="PropPipe7" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(1777, 684)
+rotation = -0.0898409
+scale = Vector2(-1, 1)
+
+[node name="PropPipe8" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(2028, 629)
+rotation = -0.353576
+scale = Vector2(-1, 1)
+
+[node name="PropPipe4" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(1242, 164)
+rotation = -0.464054
+scale = Vector2(-1, 1)
+
+[node name="PropPipe5" parent="Props" instance=ExtResource("2_m3uow")]
+position = Vector2(1456, 26)
+rotation = -0.683531
+scale = Vector2(-1, 1)
+
+[node name="PropValve" parent="Props" instance=ExtResource("3_071t6")]
+position = Vector2(508, 298)
+
+[node name="PropValve2" parent="Props" instance=ExtResource("3_071t6")]
+position = Vector2(1343, 765)
+rotation = -0.0527183
+scale = Vector2(-1, 1)
+
+[node name="PropValve3" parent="Props" instance=ExtResource("3_071t6")]
+position = Vector2(1592, 998)
+rotation = -0.163344
+scale = Vector2(-1, 1)
+
+[node name="PropWateringCan" parent="Props" instance=ExtResource("4_8piha")]
+position = Vector2(319, 952)
+scale = Vector2(1.86046, 1.86046)
+
+[node name="PropTools" parent="Props" instance=ExtResource("5_bcpb7")]
+position = Vector2(1813, 797)
+scale = Vector2(1.14861, 1.14861)
+
+[node name="PropBucket" parent="Props" instance=ExtResource("6_x5omy")]
+position = Vector2(1783, 293)
+rotation = -0.158469
+scale = Vector2(1.69714, 1.69714)
+
+[node name="PropPlant2" parent="Props" instance=ExtResource("7_6ooo2")]
+position = Vector2(1877, 364)
+
+[node name="PropPlant1" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(72, 1139)
+scale = Vector2(1.32266, 1.32266)
+
+[node name="PropPlant3" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(30, 995)
+scale = Vector2(0.991888, 0.991888)
+
+[node name="PropPlant4" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(192, 1136)
+scale = Vector2(-0.992, 0.992)
+skew = 0.1309
+
+[node name="PropPotShattered" parent="Props" instance=ExtResource("9_xqwlx")]
+position = Vector2(110, 137)
+
+[node name="PropPlant5" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(207, 205)
+scale = Vector2(1.46659, 1.46659)
+
+[node name="PropPlant6" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(362, 243)
+scale = Vector2(1.04331, 1.04331)
+
+[node name="PropPlant7" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(1389, 172)
+scale = Vector2(1.04331, 1.04331)
+
+[node name="PropPlant8" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(1389, 172)
+scale = Vector2(1.04331, 1.04331)
+
+[node name="PropPlant9" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(1085, 164)
+scale = Vector2(1.36779, 1.36779)
+
+[node name="PropPlant10" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(989, 203)
+rotation = 3.14159
+scale = Vector2(0.949001, -0.949001)
+skew = -0.113446
+
+[node name="PropPlant11" parent="Props" instance=ExtResource("8_lbn7f")]
+position = Vector2(1872, 1176)
+scale = Vector2(1.19823, 1.19823)
+
+[node name="PropPlant2" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(116, 1213)
+
+[node name="PropPlant3" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(217, 288)
+
+[node name="PropPlant4" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(1117, 253)
+rotation = -0.388666
+scale = Vector2(-1, 1)
+
+[node name="PropPlant5" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(66, 1139)
+rotation = -0.127777
+scale = Vector2(-1.62054, 1.62054)
+
+[node name="PropPlant6" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(1303, 164)
+rotation = -0.220419
+scale = Vector2(1.5199, 1.5199)
+
+[node name="PropPlant7" parent="." instance=ExtResource("10_1fqjm")]
+position = Vector2(1303, 164)
+rotation = -0.220419
+scale = Vector2(1.5199, 1.5199)

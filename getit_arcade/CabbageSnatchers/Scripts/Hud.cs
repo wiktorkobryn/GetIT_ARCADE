@@ -10,23 +10,23 @@ public partial class Hud : Control
 
   public override void _Ready()
   {
-    healthBar = GetNode<HBoxContainer>("HealthBarBg/HealthBar");
-    foreach (TextureRect healthPoint in healthBar.GetChildren())
-    {
-      healthPoints.Add(healthPoint);
-    }
+	healthBar = GetNode<HBoxContainer>("HealthBarBg/HealthBar");
+	foreach (TextureRect healthPoint in healthBar.GetChildren())
+	{
+	  healthPoints.Add(healthPoint);
+	}
   }
 
   void OnPlayerUpdateHealthBarHud(int value)
   {
-    for (int i = 0; i < healthPoints.Count; i++)
-    {
-      healthPoints[i].Visible = value > i;
-    }
+	for (int i = 0; i < healthPoints.Count; i++)
+	{
+	  healthPoints[i].Visible = value > i;
+	}
   }
 
   void OnPlayerDeath(int score)
   {
-    this.Visible = false;
+	this.Visible = false;
   }
 }
