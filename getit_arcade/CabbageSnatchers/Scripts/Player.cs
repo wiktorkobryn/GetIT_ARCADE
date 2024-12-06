@@ -54,13 +54,19 @@ public partial class Player : CharacterBody2D
 		inputVector.Y = Input.GetActionStrength("ui_down") - Input.GetActionStrength("ui_up");
 		inputVector = inputVector.Normalized();
 
+		Vector2 aimVector = Vector2.Zero;
+		aimVector.X = Input.GetActionStrength("aim_right") - Input.GetActionStrength("aim_left");
+		aimVector.Y = Input.GetActionStrength("aim_down") - Input.GetActionStrength("aim_up");
+		aimVector = aimVector.Normalized();
+
+		arm.Rotation = Vector2.Zero.AngleToPoint(aimVector);
+		gun.FlipV = aimVector.X < 0;
+		gun.Offset = aimVector.X < 0 ? new Vector2(0, 50) : new Vector2(0, 0);
+
 		if (inputVector != Vector2.Zero)
 		{
 			velocity = velocity.MoveToward(inputVector * MAX_SPEED, ACCELERATION * (float)delta);
 			animatedSprite.FlipH = inputVector.X < 0;
-			arm.Rotation = Vector2.Zero.AngleToPoint(inputVector);
-			gun.FlipV = inputVector.X < 0;
-			gun.Offset = inputVector.X < 0 ? new Vector2(0, 50) : new Vector2(0, 0);
 			animatedSprite.Play("Run");
 		}
 		else

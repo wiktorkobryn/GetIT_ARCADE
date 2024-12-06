@@ -6,47 +6,101 @@
 [ext_resource type="Texture2D" uid="uid://cw23ndxigfwxo" path="res://UI/Textures/MenuGameButtons/GameButtonPlay.png" id="4_achsu"]
 [ext_resource type="Texture2D" uid="uid://bsnetnaqwwoq0" path="res://UI/Textures/InputIndicators/InputTriangle.png" id="5_8dkpw"]
 
-[node name="Menu" type="Node2D" node_paths=PackedStringArray("panelGameSelected", "panelGameLeft", "panelGameRight", "SelectedGameDescriptionLbl")]
+[node name="Menu" type="Control" node_paths=PackedStringArray("panelGameSelected", "panelGameLeft", "panelGameRight", "SelectedGameDescriptionLbl")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_1ufyk")
-panelGameSelected = NodePath("SprBtnMiddle")
-panelGameLeft = NodePath("SprBtnLeft")
-panelGameRight = NodePath("SprBtnRight")
+panelGameSelected = NodePath("BtnMiddle/SprBtnMiddle")
+panelGameLeft = NodePath("BtnLeft/SprBtnLeft")
+panelGameRight = NodePath("BtnRight/SprBtnRight")
 SelectedGameDescriptionLbl = NodePath("LblGameDescritpion")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 1600.0
-offset_bottom = 900.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.329412, 0.34902, 0.396078, 1)
 
-[node name="SprBtnMiddle" type="Sprite2D" parent="."]
-position = Vector2(819, 369)
+[node name="BtnMiddle" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="SprBtnMiddle" type="Sprite2D" parent="BtnMiddle"]
+position = Vector2(0, 420)
 scale = Vector2(0.773333, 0.773333)
 texture = ExtResource("2_2gfaq")
 
-[node name="SprBtnLeft" type="Sprite2D" parent="."]
-position = Vector2(409, 398)
+[node name="BtnLeft" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="SprBtnLeft" type="Sprite2D" parent="BtnLeft"]
+position = Vector2(411.45, 398)
 scale = Vector2(0.736667, 0.736667)
 texture = ExtResource("3_k0d57")
 
-[node name="SprBtnRight" type="Sprite2D" parent="."]
-position = Vector2(1230, 398)
+[node name="BtnRight" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="SprBtnRight" type="Sprite2D" parent="BtnRight"]
+position = Vector2(-423.36, 398)
 scale = Vector2(0.736667, 0.736667)
 texture = ExtResource("3_k0d57")
 
-[node name="SprButtonPlay" type="Sprite2D" parent="."]
-position = Vector2(810, 813)
+[node name="PlayBtn" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -130.0
+offset_bottom = -130.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="SprButtonPlay" type="Sprite2D" parent="PlayBtn"]
 scale = Vector2(0.286667, 0.286667)
 texture = ExtResource("4_achsu")
 
-[node name="InputTriangle" type="Sprite2D" parent="SprButtonPlay"]
+[node name="InputTriangle" type="Sprite2D" parent="PlayBtn/SprButtonPlay"]
 position = Vector2(-286.046, 125.581)
 scale = Vector2(1.04651, 1.04651)
 texture = ExtResource("5_8dkpw")
 
 [node name="LblGameDescritpion" type="Label" parent="."]
-offset_left = 1248.0
-offset_top = 712.0
-offset_right = 1559.0
-offset_bottom = 874.0
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -417.0
+offset_top = -224.0
+offset_right = -106.0
+offset_bottom = -62.0
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 20
 text = "description"
