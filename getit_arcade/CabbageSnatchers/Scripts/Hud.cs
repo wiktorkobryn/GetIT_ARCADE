@@ -17,11 +17,16 @@ public partial class Hud : Control
     }
   }
 
-  public void OnPlayerUpdateHealthBarHud(int value)
+  void OnPlayerUpdateHealthBarHud(int value)
   {
     for (int i = 0; i < healthPoints.Count; i++)
     {
       healthPoints[i].Visible = value > i;
     }
+  }
+
+  void OnPlayerDeath(int score)
+  {
+    this.Visible = false;
   }
 }

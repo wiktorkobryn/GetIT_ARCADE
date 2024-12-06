@@ -25,4 +25,9 @@ public partial class EnemySpawner : Node2D
     enemy.AddToGroup("enemies");
     AddChild(enemy);
   }
+
+  void OnPlayerDeath(int score)
+  {
+    GetNode<Timer>("SpawnTimer").Stop();
+  }
 }

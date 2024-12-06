@@ -23,6 +23,8 @@ public partial class Player : CharacterBody2D
 	public delegate void ShootEventHandler();
 	[Signal]
 	public delegate void UpdateHealthBarHudEventHandler(int value);
+	[Signal]
+	public delegate void DeathEventHandler(int score);
 
 	public override void _Ready()
 	{
@@ -96,6 +98,7 @@ public partial class Player : CharacterBody2D
 		{
 			isAlive = false;
 			animatedSprite.Play("Death");
+			EmitSignal(SignalName.Death, 200);
 		}
 	}
 }
