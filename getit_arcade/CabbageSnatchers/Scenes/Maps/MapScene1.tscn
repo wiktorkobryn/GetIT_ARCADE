@@ -1,15 +1,20 @@
-[gd_scene load_steps=8 format=3 uid="uid://r30ty0424din"]
+[gd_scene load_steps=11 format=3 uid="uid://r30ty0424din"]
 
 [ext_resource type="Texture2D" uid="uid://da3pt4u55rw02" path="res://CabbageSnatchers/Textures/Scene/Floor/FloorRocks1.png" id="1_8757f"]
 [ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="3_2066u"]
 [ext_resource type="PackedScene" uid="uid://5hfybomtoved" path="res://CabbageSnatchers/Prefabs/Props/PropFertilizer.tscn" id="3_as4df"]
-[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/EnemyBroc.tscn" id="4_782iu"]
+[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/Enemies/EnemyBroc.tscn" id="4_782iu"]
 [ext_resource type="PackedScene" uid="uid://cia5rbpgkp5vm" path="res://CabbageSnatchers/Prefabs/Props/PropBucket.tscn" id="4_hk85e"]
+[ext_resource type="PackedScene" uid="uid://1b83o5rx0cd2" path="res://CabbageSnatchers/Scenes/EnemySpawner.tscn" id="5_kq8i3"]
 [ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Prefabs/Props/PropPlant1.tscn" id="6_g6r8s"]
 [ext_resource type="PackedScene" uid="uid://cfh26a8bf6gou" path="res://CabbageSnatchers/Prefabs/Props/PropTools.tscn" id="7_eguew"]
+[ext_resource type="PackedScene" uid="uid://bkurytjbyi2xu" path="res://CabbageSnatchers/Scenes/HUD.tscn" id="9_vrj5y"]
+[ext_resource type="PackedScene" uid="uid://dp8hiu772nqmc" path="res://CabbageSnatchers/Scenes/GameOver.tscn" id="10_t5qtt"]
 
-[node name="Scene1" type="Node2D"]
+[node name="Game" type="Node2D"]
 y_sort_enabled = true
+
+[node name="World" type="Node" parent="."]
 
 [node name="FloorBcg" type="Sprite2D" parent="."]
 position = Vector2(1032, -132)
@@ -111,6 +116,18 @@ rotation = 3.14159
 scale = Vector2(1.59158, -1.59158)
 skew = -0.143117
 
+[node name="EnemySpawner" parent="." instance=ExtResource("5_kq8i3")]
+enemyScene = ExtResource("4_782iu")
+
+[node name="Marker2D" parent="EnemySpawner/SpawnPoints" index="0"]
+position = Vector2(1844, 188)
+
+[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="1"]
+position = Vector2(101, 815)
+
+[node name="SpawnTimer" parent="EnemySpawner" index="1"]
+autostart = false
+
 [node name="Scene" type="Node2D" parent="."]
 y_sort_enabled = true
 
@@ -132,3 +149,29 @@ position = Vector2(333, 424)
 
 [node name="PropTools2" parent="." instance=ExtResource("7_eguew")]
 position = Vector2(1754, 785)
+
+[node name="UI" type="Node" parent="."]
+
+[node name="HUD" parent="UI" instance=ExtResource("9_vrj5y")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameOver" parent="UI" instance=ExtResource("10_t5qtt")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+size_flags_horizontal = 0
+
+[connection signal="AddScore" from="EnemySpawner" to="Scene/Player" method="OnEnemySpawnerAddScore"]
+[connection signal="Death" from="Scene/Player" to="EnemySpawner" method="OnPlayerDeath"]
+[connection signal="Death" from="Scene/Player" to="UI/HUD" method="OnPlayerDeath"]
+[connection signal="Death" from="Scene/Player" to="UI/GameOver" method="OnPlayerDeath"]
+[connection signal="UpdateHealthBarHud" from="Scene/Player" to="UI/HUD" method="OnPlayerUpdateHealthBarHud"]
+
+[editable path="EnemySpawner"]

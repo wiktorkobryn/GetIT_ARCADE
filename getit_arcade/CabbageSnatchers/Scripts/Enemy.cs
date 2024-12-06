@@ -41,7 +41,7 @@ public partial class Enemy : CharacterBody2D
 		Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
 		animatedSprite.Play("Run");
 
-		if(Position.X > player.Position.X)
+		if (Position.X > player.Position.X)
 			animatedSprite.FlipH = true;
 		else
 			animatedSprite.FlipH = false;
@@ -65,6 +65,7 @@ public partial class Enemy : CharacterBody2D
 
 	public void KillUnit()
 	{
+		PlayDeathVFX();
 		isAlive = false;
 		animatedSprite.Animation = "Death";
 		//corpseTimer.Start();
@@ -75,12 +76,12 @@ public partial class Enemy : CharacterBody2D
 		SetPhysicsProcess(false);
 
 		EmitSignal(SignalName.Killed, ENEMY_TYPE);
-        Random r = new Random();
+		Random r = new Random();
 
-        if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
-        {
-        	CallDeferred("DropCollectible");
-        }
+		if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
+		{
+			CallDeferred("DropCollectible");
+		}
 	}
 
 	private void OnCorpseTimerTimeout()
@@ -89,12 +90,20 @@ public partial class Enemy : CharacterBody2D
 	}
 
 	private void DropCollectible()
-    {
-    	var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
-    	var collectible = collectible_scene.Instantiate<Collectible>();
+	{
+		var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
+		var collectible = collectible_scene.Instantiate<Collectible>();
 
-    	collectible.GlobalPosition = this.GlobalPosition;
-    	collectible.collectibleType = CollectibleType.HEALTH;
-    	GetNode("/root/Game/World").AddChild(collectible);
-    }
+		collectible.GlobalPosition = this.GlobalPosition;
+		collectible.collectibleType = CollectibleType.HEALTH;
+		GetNode("/root/Game/World").AddChild(collectible);
+	}
+
+	private void PlayDeathVFX()
+	{
+		var vfxScene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/VFX/EnemyDeathVFX.tscn");
+		var vfx = vfxScene.Instantiate<Node2D>();
+		vfx.Position = Vector2.Zero;
+		AddChild(vfx);
+	}
 }

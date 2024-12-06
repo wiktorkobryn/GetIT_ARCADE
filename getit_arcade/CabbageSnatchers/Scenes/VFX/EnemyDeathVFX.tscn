@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://clqolekxarw3i"]
+
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/VfxController.cs" id="1_i86lp"]
+[ext_resource type="Texture2D" uid="uid://bstlprv6elhw2" path="res://CabbageSnatchers/Textures/UI/EnemyDeathVFX/EnemyDeath.001.png" id="1_rgvsj"]
+[ext_resource type="Texture2D" uid="uid://beswmcj3gs8sa" path="res://CabbageSnatchers/Textures/UI/EnemyDeathVFX/EnemyDeath.002.png" id="2_2sawe"]
+[ext_resource type="Texture2D" uid="uid://3x4k7n6l54xp" path="res://CabbageSnatchers/Textures/UI/EnemyDeathVFX/EnemyDeath.003.png" id="3_ydix3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0xntr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rgvsj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_2sawe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ydix3")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="EnemyDeathVFX" type="Node2D"]
+script = ExtResource("1_i86lp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_0xntr")
+autoplay = "default"
+frame = 2
+frame_progress = 1.0

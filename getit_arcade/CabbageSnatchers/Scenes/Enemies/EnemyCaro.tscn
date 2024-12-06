@@ -1,0 +1,121 @@
+[gd_scene load_steps=18 format=3 uid="uid://q3bitn46p8tb"]
+
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_s0mbh"]
+[ext_resource type="Texture2D" uid="uid://ck7yte8jgsiew" path="res://CabbageSnatchers/Textures/EnemyCaro/Damage/CaroDamage.001.png" id="2_g7x8a"]
+[ext_resource type="Texture2D" uid="uid://bi4ajdmofr4a8" path="res://CabbageSnatchers/Textures/EnemyCaro/Death/CaroDeath.001.png" id="3_08w6g"]
+[ext_resource type="Texture2D" uid="uid://jj8ap0jwbste" path="res://CabbageSnatchers/Textures/EnemyCaro/Idle/CaroIdle.001.png" id="4_1737i"]
+[ext_resource type="Texture2D" uid="uid://b3cd712mnjqym" path="res://CabbageSnatchers/Textures/EnemyCaro/Idle/CaroIdle.002.png" id="5_ys2hp"]
+[ext_resource type="Texture2D" uid="uid://dlubrcv2bgduk" path="res://CabbageSnatchers/Textures/EnemyCaro/Idle/CaroIdle.003.png" id="6_2tq4g"]
+[ext_resource type="Texture2D" uid="uid://bd8st7m1nm2y7" path="res://CabbageSnatchers/Textures/EnemyCaro/Idle/CaroIdle.004.png" id="7_4r7um"]
+[ext_resource type="Texture2D" uid="uid://d2fpvqif4px03" path="res://CabbageSnatchers/Textures/EnemyCaro/Run/CaroRun.001.png" id="8_34d1l"]
+[ext_resource type="Texture2D" uid="uid://cyxvcu7bsvcj0" path="res://CabbageSnatchers/Textures/EnemyCaro/Run/CaroRun.002.png" id="9_up7j2"]
+[ext_resource type="Texture2D" uid="uid://csphph7duxc0u" path="res://CabbageSnatchers/Textures/EnemyCaro/Run/CaroRun.003.png" id="10_sycs5"]
+[ext_resource type="Texture2D" uid="uid://bin1m1jlhn862" path="res://CabbageSnatchers/Textures/EnemyCaro/Run/CaroRun.004.png" id="11_4k4tp"]
+[ext_resource type="Texture2D" uid="uid://vhndxtg8jc6o" path="res://CabbageSnatchers/Textures/EnemyCaro/Run/CaroRun.005.png" id="12_jh8s2"]
+[ext_resource type="PackedScene" uid="uid://jlhl0u0jm8vo" path="res://CabbageSnatchers/Scenes/Hurtbox.tscn" id="13_gvars"]
+[ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="14_stvxj"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2elr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g7x8a")
+}],
+"loop": false,
+"name": &"Damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_08w6g")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1737i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ys2hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_2tq4g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4r7um")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_34d1l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_up7j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_sycs5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_4k4tp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jh8s2")
+}],
+"loop": false,
+"name": &"Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vt5t3"]
+radius = 15.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3kem"]
+radius = 20.0
+height = 150.0
+
+[node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
+collision_layer = 4
+collision_mask = 7
+script = ExtResource("1_s0mbh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 23.93)
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_w2elr")
+animation = &"Idle"
+autoplay = "Idle"
+offset = Vector2(0, -211.81)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(5, -15)
+shape = SubResource("CircleShape2D_vt5t3")
+
+[node name="Hurtbox" parent="." instance=ExtResource("13_gvars")]
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" parent="Hurtbox" index="0"]
+position = Vector2(5, -32)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_t3kem")
+debug_color = Color(0.96034, 0.0435504, 0.491865, 0.42)
+
+[node name="CorpseTimer" type="Timer" parent="."]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(6, -10)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("14_stvxj")
+offset = Vector2(0, 40)
+
+[connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]
+[connection signal="timeout" from="CorpseTimer" to="." method="OnCorpseTimerTimeout"]
+
+[editable path="Hurtbox"]
