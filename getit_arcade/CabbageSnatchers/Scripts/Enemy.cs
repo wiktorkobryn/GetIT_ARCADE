@@ -51,15 +51,20 @@ public partial class Enemy : CharacterBody2D
 
 		if (HP == 0)
 		{
-			isAlive = false;
-			animatedSprite.Animation = "Death";
-			//corpseTimer.Start();
-			collisionShape.SetDeferred("disabled", true);
-
-			// disabling collider in next frame
-			GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
-			SetPhysicsProcess(false);
+			KillUnit();
 		}
+	}
+
+	public void KillUnit()
+	{
+		isAlive = false;
+		animatedSprite.Animation = "Death";
+		//corpseTimer.Start();
+		collisionShape.SetDeferred("disabled", true);
+
+		// disabling collider in next frame
+		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
+		SetPhysicsProcess(false);
 	}
 
 	private void OnCorpseTimerTimeout()

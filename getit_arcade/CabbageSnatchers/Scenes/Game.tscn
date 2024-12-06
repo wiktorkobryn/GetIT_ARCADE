@@ -33,9 +33,6 @@ position = Vector2(108, 839)
 [node name="Marker2D3" type="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="2"]
 position = Vector2(1755, 919)
 
-[node name="SpawnTimer" parent="Scene/EnemySpawner" index="1"]
-autostart = false
-
 [node name="Player" parent="Scene" instance=ExtResource("1_cs5qy")]
 y_sort_enabled = true
 position = Vector2(922, 540)

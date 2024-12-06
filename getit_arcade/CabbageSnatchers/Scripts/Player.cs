@@ -100,5 +100,11 @@ public partial class Player : CharacterBody2D
 			animatedSprite.Play("Death");
 			EmitSignal(SignalName.Death, 200);
 		}
+		else
+		{
+			Enemy enemy = area.GetParent() as Enemy;
+			if(enemy != null)
+				enemy.KillUnit();
+		}
 	}
 }
