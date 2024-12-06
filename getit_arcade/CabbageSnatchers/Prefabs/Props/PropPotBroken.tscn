@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://daeckbcp5w85v"]
+
+[ext_resource type="Texture2D" uid="uid://hhi8kljmx6tr" path="res://CabbageSnatchers/Textures/Scene/PropsStatic/PropPotBroken.png" id="1_u2y02"]
+[ext_resource type="Texture2D" uid="uid://btg7ujm6gsria" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowBig.png" id="2_110my"]
+
+[node name="PropPotBroken" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(0, 3.365)
+rotation = 0.0349066
+scale = Vector2(0.365, 0.365)
+texture = ExtResource("1_u2y02")
+offset = Vector2(0, -182.365)
+
+[node name="Shadow" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
+position = Vector2(5, -3)
+rotation = 0.0401755
+scale = Vector2(0.189409, 0.2306)
+texture = ExtResource("2_110my")
+offset = Vector2(0, 64.11)

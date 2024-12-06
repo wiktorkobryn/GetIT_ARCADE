@@ -78,6 +78,7 @@ radius = 15.0
 radius = 51.0098
 
 [node name="Enemy" type="CharacterBody2D"]
+y_sort_enabled = true
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_b8kub")
@@ -95,7 +96,6 @@ position = Vector2(5, -15)
 shape = SubResource("CircleShape2D_vt5t3")
 
 [node name="Hurtbox" parent="." instance=ExtResource("13_xcu1x")]
-visible = false
 collision_layer = 4
 collision_mask = 8
 

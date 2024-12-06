@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://44wb0bpdbd8t"]
+[gd_scene load_steps=28 format=3 uid="uid://44wb0bpdbd8t"]
 
 [ext_resource type="Texture2D" uid="uid://c483f0q6wyb32" path="res://CabbageSnatchers/Textures/PlayerCalien/Damage/CalienDamage.001.png" id="1_gbca3"]
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Player.cs" id="1_iajqp"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://d2613e5aq1i5" path="res://CabbageSnatchers/Scenes/Gun.tscn" id="16_11iwk"]
 [ext_resource type="PackedScene" uid="uid://cbsyraox4ed2v" path="res://CabbageSnatchers/Scenes/Bullet.tscn" id="17_72igv"]
 [ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="19_t6jyh"]
+[ext_resource type="Texture2D" uid="uid://5mhvllrt2mmb" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Fly/SaucerFly.001.png" id="20_48304"]
+[ext_resource type="Texture2D" uid="uid://uxqo5vlqdr1q" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Fly/SaucerFly.002.png" id="21_myhlf"]
+[ext_resource type="Texture2D" uid="uid://8gogvy4pikgo" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Hover/SaucerHover.001.png" id="22_oaiks"]
+[ext_resource type="Texture2D" uid="uid://ceuqdpye2n2sf" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Hover/SaucerHover.002.png" id="23_553rj"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j7cgy"]
 animations = [{
@@ -89,6 +93,31 @@ radius = 14.0357
 radius = 17.0
 height = 76.0
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_ina7c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_48304")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_myhlf")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_oaiks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_553rj")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 2.0
+}]
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 23
@@ -132,6 +161,15 @@ position = Vector2(-4, -9.665)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("19_t6jyh")
 offset = Vector2(0, 40)
+
+[node name="UfoDeathVfx" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(14, -158)
+scale = Vector2(0.450833, 0.450833)
+sprite_frames = SubResource("SpriteFrames_ina7c")
+animation = &"fly"
+autoplay = "fly"
+frame_progress = 0.488551
 
 [connection signal="Shoot" from="." to="Arm/Gun" method="OnPlayerShoot"]
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]
