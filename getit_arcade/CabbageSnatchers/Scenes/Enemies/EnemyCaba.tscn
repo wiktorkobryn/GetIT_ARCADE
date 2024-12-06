@@ -1,17 +1,17 @@
 [gd_scene load_steps=18 format=3 uid="uid://b7f0kmbjnxd3n"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_flcav"]
-[ext_resource type="Texture2D" uid="uid://bh5sctirojp7k" path="res://CabbageSnatchers/Textures/EnemyBroc/Damage/BrocDamage.001.png" id="2_gpyjs"]
-[ext_resource type="Texture2D" uid="uid://br8ixvx0ucbcv" path="res://CabbageSnatchers/Textures/EnemyBroc/Death/BrocDeath.001.png" id="3_xr6ll"]
-[ext_resource type="Texture2D" uid="uid://cqgqnd8k0lquo" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.001.png" id="4_q7vah"]
-[ext_resource type="Texture2D" uid="uid://dgaudg7o8wnb1" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.002.png" id="5_kl7l4"]
-[ext_resource type="Texture2D" uid="uid://biteeurbvvu1v" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.003.png" id="6_088jc"]
-[ext_resource type="Texture2D" uid="uid://dr6v4aumh4er3" path="res://CabbageSnatchers/Textures/EnemyBroc/Idle/BrocIdle.004.png" id="7_pmtvp"]
-[ext_resource type="Texture2D" uid="uid://ddxwnmpc1dx2" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.001.png" id="8_g0lnu"]
-[ext_resource type="Texture2D" uid="uid://caca3cld31o4i" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.002.png" id="9_04pdu"]
-[ext_resource type="Texture2D" uid="uid://d1mac2m1roc3d" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.003.png" id="10_gaf50"]
-[ext_resource type="Texture2D" uid="uid://dc4xm788q6x6n" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.004.png" id="11_8o7sa"]
-[ext_resource type="Texture2D" uid="uid://ck0t1o3nmdpvi" path="res://CabbageSnatchers/Textures/EnemyBroc/Run/BrocRun.005.png" id="12_nsatq"]
+[ext_resource type="Texture2D" uid="uid://cym1ao5pybb5v" path="res://CabbageSnatchers/Textures/EnemyCaba/Damage/CabaDamage.001.png" id="2_syi3f"]
+[ext_resource type="Texture2D" uid="uid://nkxmauhpq2de" path="res://CabbageSnatchers/Textures/EnemyCaba/Death/CabaDeath.001.png" id="3_ot7tx"]
+[ext_resource type="Texture2D" uid="uid://ci5wo6dcf6pb4" path="res://CabbageSnatchers/Textures/EnemyCaba/Idle/CabaIdle.001.png" id="4_2dreq"]
+[ext_resource type="Texture2D" uid="uid://i5vm1ns8sml4" path="res://CabbageSnatchers/Textures/EnemyCaba/Idle/CabaIdle.002.png" id="5_muyh3"]
+[ext_resource type="Texture2D" uid="uid://cjb6jgetsa7hd" path="res://CabbageSnatchers/Textures/EnemyCaba/Idle/CabaIdle.003.png" id="6_5n58m"]
+[ext_resource type="Texture2D" uid="uid://t6tbqp6x3ej" path="res://CabbageSnatchers/Textures/EnemyCaba/Idle/CabaIdle.004.png" id="7_01exj"]
+[ext_resource type="Texture2D" uid="uid://bpqx4jif0cbpn" path="res://CabbageSnatchers/Textures/EnemyCaba/Run/CabaRun.001.png" id="8_1c11b"]
+[ext_resource type="Texture2D" uid="uid://bnwkmccda6vdw" path="res://CabbageSnatchers/Textures/EnemyCaba/Run/CabaRun.002.png" id="9_m7rpw"]
+[ext_resource type="Texture2D" uid="uid://bs761cjswxhbk" path="res://CabbageSnatchers/Textures/EnemyCaba/Run/CabaRun.003.png" id="10_rqupn"]
+[ext_resource type="Texture2D" uid="uid://dv266adhsbjbd" path="res://CabbageSnatchers/Textures/EnemyCaba/Run/CabaRun.004.png" id="11_t3uho"]
+[ext_resource type="Texture2D" uid="uid://bkb0misonw3xa" path="res://CabbageSnatchers/Textures/EnemyCaba/Run/CabaRun.005.png" id="12_4mu7d"]
 [ext_resource type="PackedScene" uid="uid://jlhl0u0jm8vo" path="res://CabbageSnatchers/Scenes/Hurtbox.tscn" id="13_exswd"]
 [ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="14_su0uv"]
 
@@ -19,7 +19,7 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_gpyjs")
+"texture": ExtResource("2_syi3f")
 }],
 "loop": false,
 "name": &"Damage",
@@ -27,7 +27,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_xr6ll")
+"texture": ExtResource("3_ot7tx")
 }],
 "loop": true,
 "name": &"Death",
@@ -35,16 +35,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_q7vah")
+"texture": ExtResource("4_2dreq")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_kl7l4")
+"texture": ExtResource("5_muyh3")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_088jc")
+"texture": ExtResource("6_5n58m")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_pmtvp")
+"texture": ExtResource("7_01exj")
 }],
 "loop": true,
 "name": &"Idle",
@@ -52,19 +52,19 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_g0lnu")
+"texture": ExtResource("8_1c11b")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_04pdu")
+"texture": ExtResource("9_m7rpw")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_gaf50")
+"texture": ExtResource("10_rqupn")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_8o7sa")
+"texture": ExtResource("11_t3uho")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_nsatq")
+"texture": ExtResource("12_4mu7d")
 }],
 "loop": true,
 "name": &"Run",
@@ -75,33 +75,39 @@ animations = [{
 radius = 15.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s3e8g"]
-radius = 51.0098
+radius = 62.0323
 
 [node name="Enemy" type="CharacterBody2D"]
 y_sort_enabled = true
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_flcav")
-COLLECTIBLE_DROP_CHANCE = 0.2
+MAX_SPEED = 30.0
+HP = 5
+COLLECTIBLE_DROP_CHANCE = 0.8
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, -1.1)
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.286772, 0.286772)
 sprite_frames = SubResource("SpriteFrames_i4pif")
-animation = &"Idle"
+animation = &"Run"
 autoplay = "Idle"
-offset = Vector2(0, -211.81)
+frame_progress = 0.220797
+offset = Vector2(0, -211.945)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, -15)
+position = Vector2(1.665, -23.065)
+scale = Vector2(1.55847, 1.55847)
 shape = SubResource("CircleShape2D_vt5t3")
 
 [node name="Hurtbox" parent="." instance=ExtResource("13_exswd")]
+visible = false
 collision_layer = 4
 collision_mask = 8
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
-position = Vector2(6, -52)
+position = Vector2(5, -62)
+rotation = -0.00235019
 shape = SubResource("CircleShape2D_s3e8g")
 debug_color = Color(0.96034, 0.0435504, 0.491865, 0.42)
 
@@ -109,8 +115,8 @@ debug_color = Color(0.96034, 0.0435504, 0.491865, 0.42)
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.54902)
-position = Vector2(6, -10)
-scale = Vector2(0.2, 0.2)
+position = Vector2(5, -10)
+scale = Vector2(0.252066, 0.229259)
 texture = ExtResource("14_su0uv")
 offset = Vector2(0, 40)
 

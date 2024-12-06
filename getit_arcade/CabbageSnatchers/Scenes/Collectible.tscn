@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Collectible.cs" id="1_cm2fo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vjid1"]
-radius = 15.1327
+radius = 23.2621
 
 [node name="Collectible" type="Area2D"]
 collision_layer = 16

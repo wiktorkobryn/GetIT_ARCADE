@@ -1,6 +1,15 @@
 using Godot;
 using System;
 
+public enum EnemyType
+{
+	Broc = 0,
+	Caba = 1, 
+	Caro = 2,
+	Jala = 3,
+	Onio = 4
+}
+
 public partial class Enemy : CharacterBody2D
 {
 	[Export]
@@ -10,7 +19,14 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	public int HP = 3;
 	[Export]
-	public int ENEMY_TYPE = 1;
+	public int ENEMY_TYPE
+	{
+		get { return (int)type; }
+		set { type = (EnemyType)value; }
+	}
+	// Godot still does not support enum in editor..
+	private EnemyType type;
+
 	[Export]
 	public float COLLECTIBLE_DROP_CHANCE = 1f;
 	private bool isAlive = true;
