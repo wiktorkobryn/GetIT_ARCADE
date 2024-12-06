@@ -3,15 +3,20 @@
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/EnemySpawner.cs" id="1_xv4ea"]
 [ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/Enemies/EnemyBroc.tscn" id="2_autya"]
 
-[node name="EnemySpawner" type="Node2D"]
+[node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("spawnTimer")]
 script = ExtResource("1_xv4ea")
 enemyScene = ExtResource("2_autya")
+spawnTimer = NodePath("SpawnTimer")
 
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="Marker2D" type="Marker2D" parent="SpawnPoints"]
 
 [node name="SpawnTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="DifficultyScaler" type="Timer" parent="."]
+wait_time = 30.0
 autostart = true
 
 [connection signal="timeout" from="SpawnTimer" to="." method="OnSpawnTimerTimeout"]

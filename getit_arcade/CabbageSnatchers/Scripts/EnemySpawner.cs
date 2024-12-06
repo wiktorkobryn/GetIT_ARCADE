@@ -10,12 +10,19 @@ public partial class EnemySpawner : Node2D
   public int maxEnemiesSpawned = 10;
   private int numOfEnemies = 0;
 
+  [Export]
+  public int maxEnemiesIncrement = 1;
+  [Export]
+  public float timerReducerPercentage = 0.9f;
+  [Export]
+  public Timer spawnTimer;
+
   [Signal]
   public delegate void AddScoreEventHandler(int score);
 
   private void OnSpawnTimerTimeout()
   {
-	var enemy = enemyScene.Instantiate<Enemy>();
+	  var enemy = enemyScene.Instantiate<Enemy>();
 
 	if (numOfEnemies < maxEnemiesSpawned)
 	{
@@ -47,5 +54,11 @@ public partial class EnemySpawner : Node2D
   {
 	numOfEnemies -= 1;
 	EmitSignal(SignalName.AddScore, 10 * (enemyType + 1));
+  }
+
+  public void OnDifficultyScalerTimerTimeout()
+  {
+      maxEnemiesSpawned += maxEnemiesIncrement;
+      spawnTimer.WaitTime *= timerReducerPercentage;
   }
 }
