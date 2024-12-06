@@ -95,11 +95,12 @@ script = ExtResource("1_iajqp")
 shot_delay = 0.43
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-6.07, -53.09)
+position = Vector2(-6.07, -0.865)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_j7cgy")
 animation = &"Idle"
 autoplay = "Idle"
+offset = Vector2(0, -209.145)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -12)

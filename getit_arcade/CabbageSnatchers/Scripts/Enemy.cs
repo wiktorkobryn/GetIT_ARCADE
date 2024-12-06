@@ -17,7 +17,7 @@ public partial class Enemy : CharacterBody2D
 
 	public override void _Ready()
 	{
-		player = GetNode<Player>("/root/Game/Player");
+		player = GetNode<Player>("/root/Game/Scene/Player");
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		collisionShape = GetNode<CollisionShape2D>("Hurtbox/CollisionShape2D");
 		corpseTimer = GetNode<Timer>("CorpseTimer");

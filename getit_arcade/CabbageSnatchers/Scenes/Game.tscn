@@ -8,28 +8,6 @@
 
 [node name="Game" type="Node"]
 
-[node name="World" type="Node2D" parent="."]
-
-[node name="FloorBcg" type="Sprite2D" parent="World"]
-position = Vector2(955.5, 551.5)
-scale = Vector2(0.826786, 0.786111)
-texture = ExtResource("2_sx77o")
-
-[node name="EnemySpawner" parent="." instance=ExtResource("2_j3q4j")]
-
-[node name="Marker2D" parent="EnemySpawner/SpawnPoints" index="0"]
-position = Vector2(1844, 188)
-
-[node name="Marker2D2" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="1"]
-position = Vector2(108, 839)
-
-[node name="Marker2D3" type="Marker2D" parent="EnemySpawner/SpawnPoints" index="2"]
-position = Vector2(1755, 919)
-
-[node name="Player" parent="." instance=ExtResource("1_cs5qy")]
-position = Vector2(922, 540)
-shot_delay = 0.3
-
 [node name="UI" type="Node" parent="."]
 
 [node name="HUD" parent="UI" instance=ExtResource("2_4q8on")]
@@ -48,9 +26,35 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 size_flags_horizontal = 0
 
-[connection signal="Death" from="Player" to="EnemySpawner" method="OnPlayerDeath"]
-[connection signal="Death" from="Player" to="UI/HUD" method="OnPlayerDeath"]
-[connection signal="Death" from="Player" to="UI/GameOver" method="OnPlayerDeath"]
-[connection signal="UpdateHealthBarHud" from="Player" to="UI/HUD" method="OnPlayerUpdateHealthBarHud"]
+[node name="Scene" type="Node2D" parent="."]
+y_sort_enabled = true
 
-[editable path="EnemySpawner"]
+[node name="World" type="Node2D" parent="Scene"]
+y_sort_enabled = true
+
+[node name="FloorBcg" type="Sprite2D" parent="Scene/World"]
+position = Vector2(955.5, -248.5)
+scale = Vector2(0.826786, 0.786111)
+texture = ExtResource("2_sx77o")
+offset = Vector2(0, 1000)
+
+[node name="EnemySpawner" parent="Scene" instance=ExtResource("2_j3q4j")]
+y_sort_enabled = true
+
+[node name="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="0"]
+position = Vector2(1844, 188)
+
+[node name="Marker2D2" type="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="1"]
+position = Vector2(108, 839)
+
+[node name="Marker2D3" type="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="2"]
+position = Vector2(1755, 919)
+
+[node name="Player" parent="Scene" instance=ExtResource("1_cs5qy")]
+y_sort_enabled = true
+position = Vector2(922, 540)
+shot_delay = 0.3
+
+[connection signal="UpdateHealthBarHud" from="Scene/Player" to="UI/HUD" method="OnPlayerUpdateHealthBarHud"]
+
+[editable path="Scene/EnemySpawner"]
