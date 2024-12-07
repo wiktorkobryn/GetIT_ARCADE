@@ -83,15 +83,15 @@ collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_flcav")
 MAX_SPEED = 30.0
-HP = 5
+HP = 6
 enemyType = 1
-COLLECTIBLE_DROP_CHANCE = 0.8
+COLLECTIBLE_DROP_CHANCE = 0.3
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, -1.1)
 scale = Vector2(0.286772, 0.286772)
 sprite_frames = SubResource("SpriteFrames_i4pif")
-animation = &"Damage"
+animation = &"Idle"
 autoplay = "Idle"
 offset = Vector2(0, -211.945)
 

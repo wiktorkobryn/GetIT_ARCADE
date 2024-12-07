@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://ddh0glkd1reiu"]
+[gd_scene load_steps=10 format=3 uid="uid://ddh0glkd1reiu"]
 
 [ext_resource type="PackedScene" uid="uid://44wb0bpdbd8t" path="res://CabbageSnatchers/Scenes/Player.tscn" id="1_cs5qy"]
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/WorldController.cs" id="1_iig1v"]
@@ -8,11 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://dp8hiu772nqmc" path="res://CabbageSnatchers/Scenes/GameOver.tscn" id="3_qmuqh"]
 [ext_resource type="PackedScene" uid="uid://dsmk3fuomfxh8" path="res://CabbageSnatchers/Scenes/Maps/MapScene2.tscn" id="3_u78sg"]
 [ext_resource type="PackedScene" uid="uid://c8emyo08g0xko" path="res://CabbageSnatchers/Scenes/Maps/MapScene3.tscn" id="4_c5cfm"]
-[ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/Enemies/EnemyBroc.tscn" id="6_rxp8m"]
-[ext_resource type="PackedScene" uid="uid://cgjro3cxghvel" path="res://CabbageSnatchers/Scenes/Enemies/EnemyCaba.tscn" id="7_lur80"]
-[ext_resource type="PackedScene" uid="uid://q3bitn46p8tb" path="res://CabbageSnatchers/Scenes/Enemies/EnemyCaro.tscn" id="8_efh6e"]
-[ext_resource type="PackedScene" uid="uid://cmgoftdl4dl5m" path="res://CabbageSnatchers/Scenes/Enemies/EnemyJala.tscn" id="9_b0ryc"]
-[ext_resource type="PackedScene" uid="uid://t2e2toyp3pna" path="res://CabbageSnatchers/Scenes/Enemies/EnemyOnio.tscn" id="10_lw1g0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yi2ea"]
 size = Vector2(205, 1471)
@@ -37,7 +32,6 @@ visible = false
 
 [node name="EnemySpawner" parent="Scene" instance=ExtResource("2_j3q4j")]
 y_sort_enabled = true
-enemyScenes = Array[PackedScene]([ExtResource("6_rxp8m"), ExtResource("7_lur80"), ExtResource("8_efh6e"), ExtResource("9_b0ryc"), ExtResource("10_lw1g0")])
 
 [node name="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="0"]
 position = Vector2(1844, 188)

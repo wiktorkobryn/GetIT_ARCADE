@@ -9,9 +9,10 @@ radius = 7.0
 
 [node name="OnioBullet" type="Node2D"]
 script = ExtResource("1_wq0t3")
+SPEED = 1000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_61kua")
 
 [node name="Hitbox" parent="." instance=ExtResource("5_e8tvn")]
@@ -19,8 +20,9 @@ collision_layer = 4
 collision_mask = 3
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(9, 0)
+position = Vector2(6, 1.36424e-12)
 rotation = 1.5708
+scale = Vector2(0.825729, 1.77435)
 shape = SubResource("CapsuleShape2D_6s7bt")
 
 [connection signal="area_entered" from="Hitbox" to="." method="OnHitboxAreaEntered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://h2t1nfpiry7r"]
+[gd_scene load_steps=24 format=3 uid="uid://h2t1nfpiry7r"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/GameMenu.cs" id="1_4vea2"]
 [ext_resource type="Texture2D" uid="uid://bk8ffo7kjv028" path="res://CabbageSnatchers/Textures/UI/Panels/PopupStartGame.png" id="2_gcunl"]
@@ -10,11 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://b1r02g6ptqqg4" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant1.tscn" id="6_vn1tr"]
 [ext_resource type="Texture2D" uid="uid://cquboa1qbjsio" path="res://UI/Textures/InputIndicators/InputR.png" id="7_0exq1"]
 [ext_resource type="PackedScene" uid="uid://dwis5vcbjeowo" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant2.tscn" id="7_57v32"]
+[ext_resource type="Texture2D" uid="uid://5mhvllrt2mmb" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Fly/SaucerFly.001.png" id="8_2v3vm"]
 [ext_resource type="PackedScene" uid="uid://daeckbcp5w85v" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPotBroken.tscn" id="8_ehpof"]
 [ext_resource type="Texture2D" uid="uid://d2i0728m6nbnw" path="res://CabbageSnatchers/Textures/UI/Panels/IngameScoreCounter.png" id="8_y82rp"]
 [ext_resource type="PackedScene" uid="uid://dv0kooug0lv73" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPipe.tscn" id="9_d00pg"]
+[ext_resource type="Texture2D" uid="uid://uxqo5vlqdr1q" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Fly/SaucerFly.002.png" id="9_naftn"]
 [ext_resource type="PackedScene" uid="uid://dhyixj6u61ngr" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropValve.tscn" id="10_6wvh6"]
+[ext_resource type="Texture2D" uid="uid://8gogvy4pikgo" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Hover/SaucerHover.001.png" id="10_f53ip"]
 [ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="11_mc4ld"]
+[ext_resource type="Texture2D" uid="uid://ceuqdpye2n2sf" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Hover/SaucerHover.002.png" id="11_osb0r"]
 
 [sub_resource type="Animation" id="Animation_gi2vr"]
 length = 0.001
@@ -55,6 +59,31 @@ _data = {
 "idle": SubResource("Animation_6pi0q")
 }
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_46e3a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_2v3vm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_naftn")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_f53ip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_osb0r")
+}],
+"loop": true,
+"name": &"hover",
+"speed": 2.0
+}]
+
 [node name="GameMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -83,10 +112,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -907.0
-offset_top = -528.0
-offset_right = 1013.0
-offset_bottom = 552.0
+offset_left = -960.0
+offset_top = -530.445
+offset_right = 960.0
+offset_bottom = 549.555
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00121, 1)
@@ -126,6 +155,15 @@ texture = ExtResource("6_pnhxf")
 position = Vector2(990.799, 848)
 scale = Vector2(0.299637, 0.3)
 texture = ExtResource("7_0exq1")
+
+[node name="UfoDeathVfx" type="AnimatedSprite2D" parent="AnimationPlayer/TextureRect"]
+position = Vector2(1446.25, 273.445)
+rotation = 0.169605
+scale = Vector2(0.29946, 0.299802)
+skew = -0.000401974
+sprite_frames = SubResource("SpriteFrames_46e3a")
+animation = &"fly"
+autoplay = "fly"
 
 [node name="Props" type="Node2D" parent="."]
 y_sort_enabled = true

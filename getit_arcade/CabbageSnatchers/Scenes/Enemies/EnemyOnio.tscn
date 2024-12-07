@@ -88,7 +88,7 @@ HP = 2
 enemyType = 4
 shot_delay = 6.0
 bulletScene = ExtResource("2_bdlvr")
-COLLECTIBLE_DROP_CHANCE = 0.2
+COLLECTIBLE_DROP_CHANCE = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.42, -1.1)

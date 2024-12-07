@@ -83,11 +83,11 @@ y_sort_enabled = true
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_pjo5t")
-MAX_SPEED = 120.0
+MAX_SPEED = 140.0
 HP = 1
 enemyType = 3
 bulletScene = ExtResource("2_dy758")
-COLLECTIBLE_DROP_CHANCE = 0.2
+COLLECTIBLE_DROP_CHANCE = 0.1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -1.135)

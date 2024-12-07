@@ -1,11 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://1b83o5rx0cd2"]
+[gd_scene load_steps=7 format=3 uid="uid://1b83o5rx0cd2"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/EnemySpawner.cs" id="1_xv4ea"]
 [ext_resource type="PackedScene" uid="uid://dd4xsjxdaurws" path="res://CabbageSnatchers/Scenes/Enemies/EnemyBroc.tscn" id="2_autya"]
+[ext_resource type="PackedScene" uid="uid://cgjro3cxghvel" path="res://CabbageSnatchers/Scenes/Enemies/EnemyCaba.tscn" id="3_t1yn5"]
+[ext_resource type="PackedScene" uid="uid://q3bitn46p8tb" path="res://CabbageSnatchers/Scenes/Enemies/EnemyCaro.tscn" id="4_btisc"]
+[ext_resource type="PackedScene" uid="uid://cmgoftdl4dl5m" path="res://CabbageSnatchers/Scenes/Enemies/EnemyJala.tscn" id="5_q8i3g"]
+[ext_resource type="PackedScene" uid="uid://t2e2toyp3pna" path="res://CabbageSnatchers/Scenes/Enemies/EnemyOnio.tscn" id="6_sk1od"]
 
 [node name="EnemySpawner" type="Node2D" node_paths=PackedStringArray("spawnTimer")]
 script = ExtResource("1_xv4ea")
-enemyScene = ExtResource("2_autya")
+enemyScenes = Array[PackedScene]([ExtResource("2_autya"), ExtResource("3_t1yn5"), ExtResource("4_btisc"), ExtResource("5_q8i3g"), ExtResource("6_sk1od")])
 spawnTimer = NodePath("SpawnTimer")
 
 [node name="SpawnPoints" type="Node" parent="."]
