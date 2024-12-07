@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmgoftdl4dl5m"]
+[gd_scene load_steps=19 format=3 uid="uid://cmgoftdl4dl5m"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_pjo5t"]
 [ext_resource type="Texture2D" uid="uid://48fkco1j8kpd" path="res://CabbageSnatchers/Textures/EnemyJala/Damage/JalaDamage.001.png" id="2_86r4h"]
+[ext_resource type="PackedScene" uid="uid://b6ynovivjd8k6" path="res://CabbageSnatchers/Scenes/Enemies/JalaBullet.tscn" id="2_dy758"]
 [ext_resource type="Texture2D" uid="uid://67mgtr2js5k6" path="res://CabbageSnatchers/Textures/EnemyJala/Death/JalaDeath.001.png" id="3_l0oda"]
 [ext_resource type="Texture2D" uid="uid://bbbllcfpgfvrr" path="res://CabbageSnatchers/Textures/EnemyJala/Idle/JalaIdle.001.png" id="4_o0cn3"]
 [ext_resource type="Texture2D" uid="uid://cngkqtod3xyj1" path="res://CabbageSnatchers/Textures/EnemyJala/Idle/JalaIdle.002.png" id="5_arf5y"]
@@ -84,13 +85,15 @@ collision_mask = 7
 script = ExtResource("1_pjo5t")
 MAX_SPEED = 120.0
 HP = 1
+enemyType = 3
+bulletScene = ExtResource("2_dy758")
 COLLECTIBLE_DROP_CHANCE = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -1.135)
 scale = Vector2(0.25, 0.25)
 sprite_frames = SubResource("SpriteFrames_i4pif")
-animation = &"Idle"
+animation = &"Death"
 autoplay = "Idle"
 offset = Vector2(0, -161.63)
 

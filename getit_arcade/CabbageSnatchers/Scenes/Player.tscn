@@ -138,7 +138,7 @@ shape = SubResource("CircleShape2D_70wkr")
 
 [node name="Hurtbox" parent="." instance=ExtResource("15_hmy17")]
 collision_layer = 2
-collision_mask = 4
+collision_mask = 12
 
 [node name="CollisionShape2D" parent="Hurtbox" index="0"]
 position = Vector2(1, -43)
@@ -169,7 +169,6 @@ scale = Vector2(0.450833, 0.450833)
 sprite_frames = SubResource("SpriteFrames_ina7c")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.488551
 
 [connection signal="Shoot" from="." to="Arm/Gun" method="OnPlayerShoot"]
 [connection signal="area_entered" from="Hurtbox" to="." method="OnHurtboxAreaEntered"]

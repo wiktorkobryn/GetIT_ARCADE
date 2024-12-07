@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://b6ynovivjd8k6"]
+
+[ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Bullet.cs" id="1_30gre"]
+[ext_resource type="Texture2D" uid="uid://dyuqerywab462" path="res://CabbageSnatchers/Textures/EnemyJala/Bullet/JalaBullet.001.png" id="1_aat4k"]
+[ext_resource type="Texture2D" uid="uid://crxjba22cxm4j" path="res://CabbageSnatchers/Textures/EnemyJala/Bullet/JalaBullet.002.png" id="2_jus0b"]
+[ext_resource type="Texture2D" uid="uid://cb8m66pt20fwg" path="res://CabbageSnatchers/Textures/EnemyJala/Bullet/JalaBullet.003.png" id="3_vdh6n"]
+[ext_resource type="PackedScene" uid="uid://whk4dn7mxfxp" path="res://CabbageSnatchers/Scenes/Hitbox.tscn" id="4_sjsdp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u68fx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_aat4k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_jus0b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vdh6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mgbmg"]
+radius = 12.083
+
+[node name="JalaBullet" type="Node2D"]
+script = ExtResource("1_30gre")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+sprite_frames = SubResource("SpriteFrames_u68fx")
+autoplay = "default"
+frame_progress = 0.894834
+
+[node name="Hitbox" parent="." instance=ExtResource("4_sjsdp")]
+collision_layer = 4
+collision_mask = 3
+
+[node name="CollisionShape2D" parent="Hitbox" index="0"]
+position = Vector2(11, 0)
+shape = SubResource("CircleShape2D_mgbmg")
+
+[connection signal="area_entered" from="Hitbox" to="." method="OnHitboxAreaEntered"]
+
+[editable path="Hitbox"]

@@ -1,11 +1,11 @@
 using Godot;
 using System;
 
-public partial class Bullet : Sprite2D
+public partial class Bullet : Node2D
 {
   public const float SPEED = 2500;
-  public Vector2 direction;
-  public float rotation;
+  public Vector2 direction = Vector2.Zero;
+  public float rotation = 0;
 
   public override void _Process(double delta)
   {

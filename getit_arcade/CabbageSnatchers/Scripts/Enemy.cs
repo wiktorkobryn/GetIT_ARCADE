@@ -1,15 +1,6 @@
 using Godot;
 using System;
 
-public enum EnemyType
-{
-	Broc = 0,
-	Caba = 1,
-	Caro = 2,
-	Jala = 3,
-	Onio = 4
-}
-
 public partial class Enemy : CharacterBody2D
 {
 	[Export]
@@ -19,21 +10,23 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	public int HP = 3;
 	[Export]
-	public int ENEMY_TYPE
-	{
-		get { return (int)type; }
-		set { type = (EnemyType)value; }
-	}
-	// Godot still does not support enum in editor..
-	private EnemyType type;
+	public EnemyType enemyType;
+	[Export]
+	public float shot_delay = 4f;
+
+	[Export]
+	public PackedScene bulletScene;
 
 	[Export]
 	public float COLLECTIBLE_DROP_CHANCE = 1f;
 	private bool isAlive = true;
+	private bool canShoot = true;
+
 	private Player player;
 	private AnimatedSprite2D animatedSprite;
 	private CollisionShape2D collisionShape;
 	private Timer corpseTimer;
+	private Timer shotTimer;
 
 	private PackedScene collectibleScene;
 	[Signal]
@@ -45,6 +38,10 @@ public partial class Enemy : CharacterBody2D
 		animatedSprite = GetNode<AnimatedSprite2D>("AnimatedSprite2D");
 		collisionShape = GetNode<CollisionShape2D>("Hurtbox/CollisionShape2D");
 		corpseTimer = GetNode<Timer>("CorpseTimer");
+		shotTimer = new Timer();
+		shotTimer.WaitTime = shot_delay;
+		shotTimer.Timeout += OnShotTimerTimeout;
+		AddChild(shotTimer);
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -57,7 +54,18 @@ public partial class Enemy : CharacterBody2D
 		Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
 		animatedSprite.Play("Run");
 
-		if(Position.X > player.Position.X)
+		if (enemyType == EnemyType.Onio && canShoot)
+		{
+			var bullet = bulletScene.Instantiate<Bullet>();
+			bullet.Position = Position;
+			bullet.direction = direction;
+			bullet.rotation = GlobalPosition.AngleToPoint(player.GlobalPosition);
+			GetNode("/root/Game/Scene/World").AddChild(bullet);
+			canShoot = false;
+			shotTimer.Start();
+		}
+
+		if (Position.X > player.Position.X)
 			animatedSprite.FlipH = true;
 		else
 			animatedSprite.FlipH = false;
@@ -91,13 +99,13 @@ public partial class Enemy : CharacterBody2D
 		GetNode<CollisionShape2D>("CollisionShape2D").SetDeferred("disabled", true);
 		SetPhysicsProcess(false);
 
-		EmitSignal(SignalName.Killed, ENEMY_TYPE);
-        Random r = new Random();
+		EmitSignal(SignalName.Killed, (int)enemyType);
+		Random r = new Random();
 
-        if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
-        {
-        	CallDeferred("DropCollectible");
-        }
+		if (r.NextDouble() <= COLLECTIBLE_DROP_CHANCE)
+		{
+			CallDeferred("DropCollectible");
+		}
 	}
 
 	private void OnCorpseTimerTimeout()
@@ -106,9 +114,9 @@ public partial class Enemy : CharacterBody2D
 	}
 
 	private void DropCollectible()
-    {
-    	var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
-    	var collectible = collectible_scene.Instantiate<Collectible>();
+	{
+		var collectible_scene = GD.Load<PackedScene>("res://CabbageSnatchers/Scenes/Collectible.tscn");
+		var collectible = collectible_scene.Instantiate<Collectible>();
 
 		collectible.GlobalPosition = this.GlobalPosition;
 		collectible.collectibleType = CollectibleType.HEALTH;
@@ -121,5 +129,10 @@ public partial class Enemy : CharacterBody2D
 		var vfx = vfxScene.Instantiate<Node2D>();
 		vfx.Position = Vector2.Zero;
 		AddChild(vfx);
+	}
+
+	private void OnShotTimerTimeout()
+	{
+		canShoot = true;
 	}
 }

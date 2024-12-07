@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://t2e2toyp3pna"]
+[gd_scene load_steps=19 format=3 uid="uid://t2e2toyp3pna"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_an4w2"]
+[ext_resource type="PackedScene" uid="uid://dc7nsr7cp3weh" path="res://CabbageSnatchers/Scenes/Enemies/OnioBullet.tscn" id="2_bdlvr"]
 [ext_resource type="Texture2D" uid="uid://d3dtstct3jnb4" path="res://CabbageSnatchers/Textures/EnemyOnio/Damage/OnioDamage.001.png" id="2_slik6"]
 [ext_resource type="Texture2D" uid="uid://c86ehppdhopfh" path="res://CabbageSnatchers/Textures/EnemyOnio/Death/OnioDeath.001.png" id="3_6g4ta"]
 [ext_resource type="Texture2D" uid="uid://c8lkp0s5cbjhd" path="res://CabbageSnatchers/Textures/EnemyOnio/Idle/OnioIdle.001.png" id="4_on326"]
@@ -84,7 +85,9 @@ collision_mask = 7
 script = ExtResource("1_an4w2")
 MAX_SPEED = 70.0
 HP = 2
-ENEMY_TYPE = 4
+enemyType = 4
+shot_delay = 6.0
+bulletScene = ExtResource("2_bdlvr")
 COLLECTIBLE_DROP_CHANCE = 0.2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
