@@ -65,9 +65,19 @@ public partial class Player : CharacterBody2D
 		aimVector.Y = Input.GetActionStrength("aim_down") - Input.GetActionStrength("aim_up");
 		aimVector = aimVector.Normalized();
 
-		arm.Rotation = Vector2.Zero.AngleToPoint(aimVector);
-		gun.FlipV = aimVector.X < 0;
-		gun.Offset = aimVector.X < 0 ? new Vector2(0, 50) : new Vector2(0, 0);
+		if (aimVector != Vector2.Zero)
+		{
+			arm.Rotation = Vector2.Zero.AngleToPoint(aimVector);
+			gun.FlipV = aimVector.X < 0;
+			gun.Offset = aimVector.X < 0 ? new Vector2(0, 50) : new Vector2(0, 0);
+		}
+		else
+		{
+			arm.Rotation = Vector2.Zero.AngleToPoint(inputVector);
+			gun.FlipV = inputVector.X < 0;
+			gun.Offset = inputVector.X < 0 ? new Vector2(0, 50) : new Vector2(0, 0);
+		}
+
 
 		if (inputVector != Vector2.Zero)
 		{
