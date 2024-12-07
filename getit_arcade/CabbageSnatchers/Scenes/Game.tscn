@@ -90,4 +90,10 @@ rotation = 1.5708
 scale = Vector2(1, 1.65)
 shape = SubResource("RectangleShape2D_yi2ea")
 
+[connection signal="AddScore" from="Scene/EnemySpawner" to="Scene/Player" method="OnEnemySpawnerAddScore"]
+[connection signal="Death" from="Scene/Player" to="Scene/EnemySpawner" method="OnPlayerDeath"]
+[connection signal="Death" from="Scene/Player" to="Scene/UI/HUD" method="OnPlayerDeath"]
+[connection signal="Death" from="Scene/Player" to="Scene/UI/GameOver" method="OnPlayerDeath"]
+[connection signal="UpdateHealthBarHud" from="Scene/Player" to="Scene/UI/HUD" method="OnPlayerUpdateHealthBarHud"]
+
 [editable path="Scene/EnemySpawner"]

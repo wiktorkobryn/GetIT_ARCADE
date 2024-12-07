@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bvkg68035teeu"]
+[gd_scene load_steps=18 format=3 uid="uid://t2e2toyp3pna"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_an4w2"]
 [ext_resource type="Texture2D" uid="uid://d3dtstct3jnb4" path="res://CabbageSnatchers/Textures/EnemyOnio/Damage/OnioDamage.001.png" id="2_slik6"]

@@ -149,7 +149,7 @@ position = Vector2(13, -45)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("15_8pabq")
 centered = false
-offset = Vector2(-34.85, -50)
+offset = Vector2(-35, -50)
 
 [node name="Gun" parent="Arm" instance=ExtResource("16_11iwk")]
 position = Vector2(246, -30)

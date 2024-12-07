@@ -73,6 +73,7 @@ public partial class Player : CharacterBody2D
 		{
 			velocity = velocity.MoveToward(inputVector * MAX_SPEED, ACCELERATION * (float)delta);
 			animatedSprite.FlipH = inputVector.X < 0;
+			arm.Position = inputVector.X < 0 ? new Vector2(-25, -45) : new Vector2(13, -45);
 			animatedSprite.Play("Run");
 		}
 		else
@@ -107,7 +108,7 @@ public partial class Player : CharacterBody2D
 		else
 		{
 			Enemy enemy = area.GetParent() as Enemy;
-			if(enemy != null)
+			if (enemy != null)
 				enemy.KillUnit();
 		}
 	}

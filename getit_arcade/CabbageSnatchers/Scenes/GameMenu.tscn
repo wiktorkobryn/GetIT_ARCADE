@@ -16,6 +16,21 @@
 [ext_resource type="PackedScene" uid="uid://dhyixj6u61ngr" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropValve.tscn" id="10_6wvh6"]
 [ext_resource type="PackedScene" uid="uid://dhy8tf8sf44yv" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropWateringCan.tscn" id="11_mc4ld"]
 
+[sub_resource type="Animation" id="Animation_gi2vr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_6pi0q"]
 resource_name = "idle"
 length = 20.0
@@ -32,21 +47,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(0, 9.55499), Vector2(0, -9.685), Vector2(0, 9.55499)]
-}
-
-[sub_resource type="Animation" id="Animation_gi2vr"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dljx4"]
@@ -196,7 +196,6 @@ scale = Vector2(-1.246, 1.246)
 [node name="PropPipe" parent="Props" instance=ExtResource("9_d00pg")]
 position = Vector2(59, 611)
 rotation = 0.137149
-scale = Vector2(1, 1)
 
 [node name="PropPipe2" parent="Props" instance=ExtResource("9_d00pg")]
 position = Vector2(268, 679)
@@ -205,7 +204,6 @@ rotation = 0.469472
 [node name="PropValve" parent="Props" instance=ExtResource("10_6wvh6")]
 position = Vector2(444, 773)
 rotation = 0.667439
-scale = Vector2(1, 1)
 
 [node name="PropWateringCan" parent="Props" instance=ExtResource("11_mc4ld")]
 position = Vector2(172, 1084)
@@ -218,6 +216,7 @@ scale = Vector2(0.66076, 0.642495)
 texture = ExtResource("8_y82rp")
 
 [node name="CreditsTxt1" type="Label" parent="."]
+layout_mode = 0
 offset_left = 1674.0
 offset_top = 30.0
 offset_right = 2001.0
@@ -226,6 +225,7 @@ theme_override_font_sizes/font_size = 25
 text = "Konrad Dobosz"
 
 [node name="CreditsTxt2" type="Label" parent="."]
+layout_mode = 0
 offset_left = 1728.0
 offset_top = 70.0
 offset_right = 2055.0

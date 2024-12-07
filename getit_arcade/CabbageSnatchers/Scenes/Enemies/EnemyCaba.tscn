@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7f0kmbjnxd3n"]
+[gd_scene load_steps=18 format=3 uid="uid://cgjro3cxghvel"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Enemy.cs" id="1_flcav"]
 [ext_resource type="Texture2D" uid="uid://cym1ao5pybb5v" path="res://CabbageSnatchers/Textures/EnemyCaba/Damage/CabaDamage.001.png" id="2_syi3f"]
