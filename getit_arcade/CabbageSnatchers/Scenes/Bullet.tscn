@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://whk4dn7mxfxp" path="res://CabbageSnatchers/Scenes/Hitbox.tscn" id="2_47lxo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pi3y5"]
+radius = 48.6554
 
 [node name="Bullet" type="Sprite2D"]
 position = Vector2(-7.62939e-06, 9.53674e-07)
@@ -17,7 +18,7 @@ collision_layer = 8
 collision_mask = 5
 
 [node name="CollisionShape2D" parent="Hitbox" index="0"]
-position = Vector2(49, 0)
+position = Vector2(14.2857, -2.72478e-06)
 shape = SubResource("CircleShape2D_pi3y5")
 
 [node name="DestroyTimer" type="Timer" parent="."]
