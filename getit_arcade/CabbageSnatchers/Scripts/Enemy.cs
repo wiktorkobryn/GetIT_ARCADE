@@ -20,7 +20,7 @@ public partial class Enemy : CharacterBody2D
 	[Export]
 	public float COLLECTIBLE_DROP_CHANCE = 1f;
 	private bool isAlive = true;
-	private bool canShoot = true;
+	public bool canShoot = true;
 
 	private Player player;
 	private AnimatedSprite2D animatedSprite;
@@ -54,7 +54,7 @@ public partial class Enemy : CharacterBody2D
 		Velocity = Velocity.MoveToward(direction * MAX_SPEED, ACCELERATION * (float)delta);
 		animatedSprite.Play("Run");
 
-		if (enemyType == EnemyType.Onio && canShoot)
+		if (( enemyType == EnemyType.Onio || enemyType == EnemyType.Jala ) && canShoot)
 		{
 			var bullet = bulletScene.Instantiate<Bullet>();
 			bullet.Position = Position;
@@ -73,18 +73,23 @@ public partial class Enemy : CharacterBody2D
 		MoveAndSlide();
 	}
 
-	private void OnHurtboxAreaEntered(Area2D area)
+	public void DealDamage(int damage)
 	{
 		if (!isAlive) return;
 
 		animatedSprite.Play("Damage");
 
-		HP -= 1;
+		HP -= damage;
 
-		if (HP == 0)
+		if (HP <= 0)
 		{
 			KillUnit();
 		}
+	}
+
+	private void OnHurtboxAreaEntered(Area2D area)
+	{
+		DealDamage(1);
 	}
 
 	public void KillUnit()

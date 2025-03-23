@@ -28,14 +28,17 @@ radius = 12.083
 
 [node name="JalaBullet" type="Node2D"]
 script = ExtResource("1_30gre")
+SPEED = 300.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.444699, 0.444699)
 sprite_frames = SubResource("SpriteFrames_u68fx")
 autoplay = "default"
-frame_progress = 0.894834
+frame_progress = 0.953612
 
 [node name="Hitbox" parent="." instance=ExtResource("4_sjsdp")]
+position = Vector2(7, 0)
+scale = Vector2(1.28, 1.28)
 collision_layer = 4
 collision_mask = 3
 

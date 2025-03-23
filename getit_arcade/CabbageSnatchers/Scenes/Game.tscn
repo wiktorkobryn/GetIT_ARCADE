@@ -33,8 +33,7 @@ visible = false
 
 [node name="EnemySpawner" parent="Scene" instance=ExtResource("2_j3q4j")]
 y_sort_enabled = true
-maxEnemiesSpawned = 6
-timerReducerPercentage = 0.93
+maxEnemiesSpawned = 5
 
 [node name="Marker2D" parent="Scene/EnemySpawner/SpawnPoints" index="0"]
 position = Vector2(1844, 188)
@@ -52,6 +51,9 @@ wait_time = 2.0
 position = Vector2(922, 540)
 shot_delay = 0.3
 scoreLbl = NodePath("../UI/IngameScoreCounter/Score")
+dashSpeed = 800.0
+dashDuration = 0.3
+dashCooldown = 3.0
 
 [node name="UI" type="Node" parent="Scene"]
 

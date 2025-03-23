@@ -1,9 +1,10 @@
-[gd_scene load_steps=28 format=3 uid="uid://44wb0bpdbd8t"]
+[gd_scene load_steps=30 format=3 uid="uid://44wb0bpdbd8t"]
 
 [ext_resource type="Texture2D" uid="uid://c483f0q6wyb32" path="res://CabbageSnatchers/Textures/PlayerCalien/Damage/CalienDamage.001.png" id="1_gbca3"]
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/Player.cs" id="1_iajqp"]
 [ext_resource type="Texture2D" uid="uid://vj5ctqtlfuom" path="res://CabbageSnatchers/Textures/PlayerCalien/Damage/CalienDamage.002.png" id="2_ydm3u"]
 [ext_resource type="Texture2D" uid="uid://c2rbrd7h0mdli" path="res://CabbageSnatchers/Textures/PlayerCalien/Death/CalienDeath.001.png" id="3_43n6h"]
+[ext_resource type="Texture2D" uid="uid://cqffhb510ydsh" path="res://CabbageSnatchers/Textures/PlayerCalien/Dash/CalienDash.001.png" id="4_4i7jq"]
 [ext_resource type="Texture2D" uid="uid://5lxreqasxpo6" path="res://CabbageSnatchers/Textures/PlayerCalien/Death/CalienDeath.002.png" id="4_iepuw"]
 [ext_resource type="Texture2D" uid="uid://cf8o25nq76ccj" path="res://CabbageSnatchers/Textures/PlayerCalien/Idle/CalienIdle.001.png" id="5_cyudk"]
 [ext_resource type="Texture2D" uid="uid://b3us276ctbmwi" path="res://CabbageSnatchers/Textures/PlayerCalien/Idle/CalienIdle.002.png" id="6_gxp6x"]
@@ -20,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsyraox4ed2v" path="res://CabbageSnatchers/Scenes/Bullet.tscn" id="17_72igv"]
 [ext_resource type="Texture2D" uid="uid://bto8mt41mtheq" path="res://CabbageSnatchers/Textures/UI/SpriteShadows/ShadowSmall.png" id="19_t6jyh"]
 [ext_resource type="Texture2D" uid="uid://5mhvllrt2mmb" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Fly/SaucerFly.001.png" id="20_48304"]
+[ext_resource type="Texture2D" uid="uid://dw2vo46ep5say" path="res://CabbageSnatchers/Textures/PlayerCalien/Arm/CalienKatana.png" id="20_xc55y"]
 [ext_resource type="Texture2D" uid="uid://uxqo5vlqdr1q" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Fly/SaucerFly.002.png" id="21_myhlf"]
 [ext_resource type="Texture2D" uid="uid://8gogvy4pikgo" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Hover/SaucerHover.001.png" id="22_oaiks"]
 [ext_resource type="Texture2D" uid="uid://ceuqdpye2n2sf" path="res://CabbageSnatchers/Textures/UI/PlayerDeathVFX/Hover/SaucerHover.002.png" id="23_553rj"]
@@ -35,6 +37,14 @@ animations = [{
 }],
 "loop": false,
 "name": &"Damage",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_4i7jq")
+}],
+"loop": true,
+"name": &"Dash",
 "speed": 5.0
 }, {
 "frames": [{
@@ -118,11 +128,13 @@ animations = [{
 "speed": 2.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("gunSprite", "katanaSprite")]
 collision_layer = 2
 collision_mask = 23
 script = ExtResource("1_iajqp")
 shot_delay = 0.43
+gunSprite = NodePath("Arm/Gun")
+katanaSprite = NodePath("Arm/Katana")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-6.07, -0.865)
@@ -152,8 +164,15 @@ centered = false
 offset = Vector2(-35, -50)
 
 [node name="Gun" parent="Arm" instance=ExtResource("16_11iwk")]
-position = Vector2(246, -30)
+position = Vector2(200, -28)
 bullet_scene = ExtResource("17_72igv")
+
+[node name="Katana" parent="Arm" instance=ExtResource("16_11iwk")]
+visible = false
+position = Vector2(200, -96)
+rotation = -1.06023
+texture = ExtResource("20_xc55y")
+script = null
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.54902)

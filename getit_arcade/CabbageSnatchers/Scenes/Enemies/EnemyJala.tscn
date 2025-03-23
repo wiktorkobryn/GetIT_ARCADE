@@ -86,6 +86,7 @@ script = ExtResource("1_pjo5t")
 MAX_SPEED = 140.0
 HP = 1
 enemyType = 3
+shot_delay = 8.0
 bulletScene = ExtResource("2_dy758")
 COLLECTIBLE_DROP_CHANCE = 0.1
 
