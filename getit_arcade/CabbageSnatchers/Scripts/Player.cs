@@ -9,6 +9,8 @@ public partial class Player : CharacterBody2D
 	public int HP = 7;
 	[Export]
 	public int score = 0;
+	[Export]
+	public Label scoreLbl = null;
 
 	public const int MAX_HP = 7;
 
@@ -48,7 +50,7 @@ public partial class Player : CharacterBody2D
 
 		Vector2 velocity = Velocity;
 
-		if (Input.IsActionPressed("shoot") && canShoot)
+		if (Input.IsActionPressed("ui_square") && canShoot)
 		{
 			EmitSignal(SignalName.Shoot);
 			canShoot = false;
@@ -79,7 +81,7 @@ public partial class Player : CharacterBody2D
 		}
 
 
-		if (inputVector != Vector2.Zero)
+		if (inputVector != Vector2.Zero && Input.IsActionPressed("ui_R1"))
 		{
 			velocity = velocity.MoveToward(inputVector * MAX_SPEED, ACCELERATION * (float)delta);
 			animatedSprite.FlipH = inputVector.X < 0;
@@ -132,5 +134,8 @@ public partial class Player : CharacterBody2D
 	void OnEnemySpawnerAddScore(int value)
 	{
 		score += value;
+
+		if(scoreLbl != null)
+			scoreLbl.Text = "SCORE:  " + score;
 	}
 }

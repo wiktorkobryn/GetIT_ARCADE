@@ -17,11 +17,11 @@ public partial class GameOver : Control
 
   public override void _Process(double delta)
   {
-	if (Input.IsActionJustPressed("ui_cross"))
+	if (Input.IsActionJustPressed("ui_circle"))
 	{
 	  GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/Game.tscn");
 	}
-	else if (Input.IsActionJustPressed("ui_circle"))
+	else if (Input.IsActionJustPressed("ui_cross"))
 	{
 	  GetTree().ChangeSceneToFile("res://CabbageSnatchers/Scenes/GameMenu.tscn");
 	}

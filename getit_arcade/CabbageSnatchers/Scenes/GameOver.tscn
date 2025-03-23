@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/GameOver.cs" id="1_b472h"]
 [ext_resource type="Texture2D" uid="uid://dvnurk8n8dhyy" path="res://CabbageSnatchers/Textures/UI/Panels/PopupGameOver.png" id="1_m0quc"]
-[ext_resource type="Texture2D" uid="uid://yb12uwhv3hyp" path="res://UI/Textures/InputIndicators/InputCross.png" id="3_ufoif"]
-[ext_resource type="Texture2D" uid="uid://bws0miyl2rh2p" path="res://UI/Textures/InputIndicators/InputCircle.png" id="4_vgxyj"]
+[ext_resource type="Texture2D" uid="uid://b0xeapfvb6hsi" path="res://UI/Textures/InputIndicators/InputSNESa.png" id="3_hwjbu"]
+[ext_resource type="Texture2D" uid="uid://devkk04u7s8fq" path="res://UI/Textures/InputIndicators/InputSNESb.png" id="4_gh0x1"]
 
 [node name="GameOver" type="Control"]
 layout_mode = 3
@@ -39,12 +39,12 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 530.5
-offset_top = -240.5
-offset_right = 620.5
-offset_bottom = -150.5
+offset_left = 490.5
+offset_top = -241.5
+offset_right = 614.5
+offset_bottom = -117.5
 grow_vertical = 0
-texture = ExtResource("3_ufoif")
+texture = ExtResource("3_hwjbu")
 expand_mode = 1
 stretch_mode = 5
 
@@ -55,13 +55,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -672.5
-offset_top = -244.5
-offset_right = -582.5
-offset_bottom = -154.5
+offset_left = -695.5
+offset_top = -248.5
+offset_right = -578.5
+offset_bottom = -131.5
 grow_horizontal = 0
 grow_vertical = 0
-texture = ExtResource("4_vgxyj")
+texture = ExtResource("4_gh0x1")
 expand_mode = 1
 stretch_mode = 5
 

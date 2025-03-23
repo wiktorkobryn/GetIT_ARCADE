@@ -1,9 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://h2t1nfpiry7r"]
 
 [ext_resource type="Script" path="res://CabbageSnatchers/Scripts/GameMenu.cs" id="1_4vea2"]
-[ext_resource type="Texture2D" uid="uid://bk8ffo7kjv028" path="res://CabbageSnatchers/Textures/UI/Panels/PopupStartGame.png" id="2_gcunl"]
 [ext_resource type="Texture2D" uid="uid://cj5pvmbtl43i1" path="res://CabbageSnatchers/Textures/UI/Panels/MenuBackground.png" id="2_j4qyl"]
-[ext_resource type="Texture2D" uid="uid://bsnetnaqwwoq0" path="res://UI/Textures/InputIndicators/InputTriangle.png" id="4_0loo7"]
+[ext_resource type="Texture2D" uid="uid://tfdqwjwuws0c" path="res://CabbageSnatchers/Textures/UI/Panels/PopupStartGameSNES.png" id="3_kkvry"]
+[ext_resource type="Texture2D" uid="uid://devkk04u7s8fq" path="res://UI/Textures/InputIndicators/InputSNESb.png" id="4_fscy6"]
 [ext_resource type="Texture2D" uid="uid://b2322v8eo67ij" path="res://UI/Textures/InputIndicators/InputR1.png" id="5_1e3ba"]
 [ext_resource type="PackedScene" uid="uid://c38n62346hvav" path="res://CabbageSnatchers/Scenes/Prefabs/Props/PropPlant3.tscn" id="5_t6280"]
 [ext_resource type="Texture2D" uid="uid://c2mkfp07h5217" path="res://UI/Textures/InputIndicators/InputL.png" id="6_pnhxf"]
@@ -113,13 +113,13 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -960.0
-offset_top = -530.445
+offset_top = -540.0
 offset_right = 960.0
-offset_bottom = 549.555
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.00121, 1)
-texture = ExtResource("2_gcunl")
+texture = ExtResource("3_kkvry")
 expand_mode = 1
 stretch_mode = 5
 
@@ -130,28 +130,31 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 49.7763
-offset_top = -31.0
-offset_right = 89.7764
-offset_bottom = 9.0
+offset_left = -200.918
+offset_top = -29.0
+offset_right = -149.918
+offset_bottom = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.59297, 1.59297)
-texture = ExtResource("4_0loo7")
+texture = ExtResource("4_fscy6")
 expand_mode = 1
 stretch_mode = 5
 
 [node name="InputR1" type="Sprite2D" parent="AnimationPlayer/TextureRect"]
+visible = false
 position = Vector2(1174.58, 776)
 scale = Vector2(0.224728, 0.225)
 texture = ExtResource("5_1e3ba")
 
 [node name="InputL" type="Sprite2D" parent="AnimationPlayer/TextureRect"]
+visible = false
 position = Vector2(956.84, 705)
 scale = Vector2(0.299637, 0.3)
 texture = ExtResource("6_pnhxf")
 
 [node name="InputR" type="Sprite2D" parent="AnimationPlayer/TextureRect"]
+visible = false
 position = Vector2(990.799, 848)
 scale = Vector2(0.299637, 0.3)
 texture = ExtResource("7_0exq1")
