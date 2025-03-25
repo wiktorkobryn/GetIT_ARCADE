@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GetIT_arcade"
-run/main_scene="res://UI/Scenes/MainMenu.tscn"
+run/main_scene="res://CabbageSnatchers/Scenes/GameMenu.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -120,3 +120,8 @@ ui_R1={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="Bullet"
 2d_physics/layer_5="Item"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
